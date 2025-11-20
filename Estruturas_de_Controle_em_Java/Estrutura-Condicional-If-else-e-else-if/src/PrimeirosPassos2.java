@@ -16,7 +16,7 @@ public class PrimeirosPassos2 {
             System.out.println("Você Não pode entrar na reunião. ");
         }
 
-        System.out.print("Fim do prigrama! ");
+        System.out.print("Fim do programa! ");
 
         scanner.close();
     }

@@ -12,7 +12,7 @@ public class Exercicio00 {
         int idade = scanner.nextInt();
 
         if (idade >= 18) {
-            System.out.printf(String.format("%s tem %s, você e maior de idade. /n", nome, idade));
+            System.out.printf(String.format("%s tem %s anos, você e maior de idade. ", nome, idade));
         } else {
             System.out.println("Menor de idade. ");
         }
