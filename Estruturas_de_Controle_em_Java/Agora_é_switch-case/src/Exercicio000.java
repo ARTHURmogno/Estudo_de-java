@@ -15,6 +15,12 @@ public class Exercicio000 {
 
         int opcao = scanner.nextInt();
 
+        if (opcao < 1 || opcao > 4) {
+            System.out.println("Opeção Inválida. ");
+            scanner.close();
+            return;
+        }
+
 
         System.out.println("Informe um Número: " + nome);
         int num1 = scanner.nextInt();
@@ -28,26 +34,26 @@ public class Exercicio000 {
         switch (opcao) {
             case 1: 
             resultado = num1 + num2; 
-            System.out.printf("Resultado é " + resultado);
+            System.out.printf("Resultado é " + resultado + "\n");
             break;
             case 2:
             resultado = num1 - num2;
-            System.out.printf("Resultado é " + resultado);
+            System.out.printf("Resultado é " + resultado + "\n");
             break;
             case 3: 
             resultado = num1 * num2;
-            System.out.printf("Resultado é " + resultado);
+            System.out.printf("Resultado é " + resultado + "\n");
             break;
             case 4:
             if (num2 == 0) {
                 System.out.println("erro: divisão por zero! ");
             } else {
             resultado = num1 / num2;
-            System.out.printf("Resultado é " + resultado);
+            System.out.printf("Resultado é " + resultado + "\n" );
             }
             break;
             default:
-            System.out.println("Opção Inexistente. ");
+            System.out.println("Opção Inexistente. \n");
 
         }
 
