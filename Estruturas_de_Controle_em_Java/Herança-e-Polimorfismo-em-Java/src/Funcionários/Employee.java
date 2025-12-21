@@ -1,9 +1,19 @@
 /*   class abstract 
 *    e uma class que não pode ser instanciada.
 *    somente servem como base ou uma class referencia. 
+* --------------------------------------------------------------------------------------------------
+*   sealed:
+*   quer dizer que ela foi selada é não pode ser erdade por nim quem
+*   A não see que ela permita com (permits).
+*
+*--------------------------------------------------------------------------------------------------
+*
+*   permits:
+*   quer dizer que ás class descritas após serão pesmitidas herdar dela
+*   logo após á permits o nome das class.
 */
 
-public abstract class Employee {
+public sealed abstract class Employee permits Manager, Salesman {
    
 
     public String nome;
