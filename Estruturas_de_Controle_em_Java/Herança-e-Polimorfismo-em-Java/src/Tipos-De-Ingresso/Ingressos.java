@@ -1,4 +1,4 @@
-public abstract class Ingresso {
+public abstract class Ingressos  {
 
     private String nomeDoFilme;
 
@@ -7,7 +7,7 @@ public abstract class Ingresso {
     private boolean estaDublado;
 
 
-    public Ingresso(String nomeDoFilme, double valor, boolean estaDublado) {
+    public Ingressos(String nomeDoFilme, double valor, boolean estaDublado) {
         this.nomeDoFilme = nomeDoFilme;
         this.valor = valor;
         this.estaDublado = estaDublado;

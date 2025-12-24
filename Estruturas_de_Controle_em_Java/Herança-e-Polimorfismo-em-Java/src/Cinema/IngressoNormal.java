@@ -1,5 +1,4 @@
-package Tipos.De.Ingresso;
-
+package Cinema;
 
 public class IngressoNormal extends Ingressos {
 

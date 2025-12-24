@@ -1,17 +1,17 @@
-public class IngressoFamilha extends Ingresso {
+public class IngressoFamilia extends Ingressos {
 
     private int quantidadeDePessoas;
 
-    public IngressoFamilha(String nomeDoFilme, boolean estaDublado, double valor, int quantidadeDePessoas) {
+    public IngressoFamilia(String nomeDoFilme, boolean estaDublado, double valor, int quantidadeDePessoas) {
         super(nomeDoFilme, valor, estaDublado);
         this.quantidadeDePessoas = quantidadeDePessoas;
     }
 
-    @Override
+    //@Override
     public double calcularValorFinal() {
         double total = valor * quantidadeDePessoas;
 
-        if (quantidadeDePessoas >= 3) {
+        if (quantidadeDePessoas > 3) {
             total = total * 0.95;
         }
 
