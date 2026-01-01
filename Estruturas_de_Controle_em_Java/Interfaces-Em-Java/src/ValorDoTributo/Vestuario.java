@@ -1,4 +1,4 @@
-package EnviarMensagem;
+package ValorDoTributo;
 
 public class Vestuario extends Produto {
 
@@ -9,7 +9,5 @@ public class Vestuario extends Produto {
     public double ValorDoTributo() {
         return getValorProduto() * 0.025;
     }
-
-
-    
+      
 }

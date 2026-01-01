@@ -1,4 +1,4 @@
-package EnviarMensagem;
+package ValorDoTributo;
 
 public abstract class Produto implements ValorDoTributo {
 

@@ -1,4 +1,4 @@
-package EnviarMensagem;
+package ValorDoTributo;
 
 import java.util.Scanner;
 

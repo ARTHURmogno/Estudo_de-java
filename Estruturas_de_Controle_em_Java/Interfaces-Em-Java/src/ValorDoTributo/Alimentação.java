@@ -1,4 +1,4 @@
-package EnviarMensagem;
+package ValorDoTributo;
 
 public class Alimentação extends Produto {
 
@@ -10,6 +10,4 @@ public class Alimentação extends Produto {
        return getValorProduto() * 0.01;
     }
 
-
-    
 }

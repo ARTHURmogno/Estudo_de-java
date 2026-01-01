@@ -1,4 +1,4 @@
-package EnviarMensagem;
+package ValorDoTributo;
 
 public class SaldeBemEstar extends Produto {
 
@@ -11,6 +11,4 @@ public class SaldeBemEstar extends Produto {
        return getValorProduto() * 0.015;
     }
 
-
-    
 }
