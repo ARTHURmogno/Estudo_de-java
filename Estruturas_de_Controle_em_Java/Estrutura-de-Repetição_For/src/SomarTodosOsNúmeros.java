@@ -1,9 +1,9 @@
-import java.util.Scanner;
+//import java.util.Scanner;
 
-public class SomarTodosOsNumeros {
+public class SomarTodosOsNúmeros {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
         
        /*  System.out.println("Quer Saber um Número Especifico: ");
         int numero = scanner.nextInt();  */
@@ -17,9 +17,10 @@ public class SomarTodosOsNumeros {
 
         System.out.println("===========================================");
 
-        for(int linha = 1; linha <= 6; linha++) {
-            for(int coluna = 5; coluna >= linha; coluna++) {
-                System.out.print("* ");
+        for(int linha = 6; linha <= 6; linha--) {
+            for(int coluna = 2; coluna <= linha; coluna++) {
+                System.out.println("*");
+                 System.out.println("*");
             
             }
             System.out.println();
@@ -28,3 +29,6 @@ public class SomarTodosOsNumeros {
     }
     
 }
+
+
+
