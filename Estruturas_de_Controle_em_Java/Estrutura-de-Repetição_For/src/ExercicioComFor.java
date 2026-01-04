@@ -3,9 +3,9 @@
  * 
  * Eu utilizei: for é támbem if e switch case:
  * 
- * for para laso de repetição.
+ * for para laço de repetição.
  * 
- * if para interronper tudo caso o usuário escolhe-se uma opção não existente.
+ * if para interronper tudo caso o usuário, escolhe-se uma opção não existente.
  * 
  * E switch case para escolher o tipo de tabuada.
  * 
