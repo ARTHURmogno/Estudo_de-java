@@ -12,6 +12,7 @@ public class Gerente extends Funcionário {
     }    
 
     public void String setRelatorioFinanceiro(String relatorioFinanceiro) {
+        System.out.println("O relatório Está Sendo Feito: ");
         
     }
 
