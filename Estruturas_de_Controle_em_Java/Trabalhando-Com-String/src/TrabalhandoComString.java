@@ -7,10 +7,10 @@ public class TrabalhandoComString {
         System.out.println("Digité: ");
         String nodd = scanner.next();
 
-          String nott = "java";
-          nodd.toUpperCase();
+        
+          String nome = nodd.toUpperCase();
 
-          if (nodd.equals(nott)) {
+          if (nome.equals("JAVA")) {
             System.out.println("Igual: ");
           } else {
             System.out.println("Não é Igual: ");
