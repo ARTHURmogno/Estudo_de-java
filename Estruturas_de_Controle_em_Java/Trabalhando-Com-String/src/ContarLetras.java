@@ -4,7 +4,7 @@ public class ContarLetras {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Informe uma Palavra: ");
+        System.out.println("Informe uma Palavra, Que tenha mais de três caracteres. ");
         String nome = scanner.next();
 
         int contador = 0;

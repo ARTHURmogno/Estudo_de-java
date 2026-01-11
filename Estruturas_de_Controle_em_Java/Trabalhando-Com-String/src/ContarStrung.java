@@ -48,13 +48,13 @@ public class ContarStrung {
 
          System.out.println("==========================================");
 
-          System.out.println("Digité: ");
+          System.out.println("Digité: A palavra(java). ");
           String nodd = scanner.next();
 
           String nott = "java";
 
           if (nodd.equals(nott)) {
-            System.out.println("Igual: ");
+            System.out.println("Igual: a palavra ");
           } else {
             System.out.println("Não é Igual: ");
           }
