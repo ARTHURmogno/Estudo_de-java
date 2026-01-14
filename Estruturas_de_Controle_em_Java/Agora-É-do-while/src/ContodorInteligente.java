@@ -29,6 +29,7 @@ public class ContodorInteligente {
          System.out.println("Números Total Digitádo: " + total);
          System.out.println("Números Pares: " + numeroPar);
          System.out.println("Números Impares: " + numeroImpar);
+         System.out.println("Corrige. ");
 
         sc.close();
 
