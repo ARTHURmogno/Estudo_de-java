@@ -20,6 +20,8 @@ public class MenuAté0 {
 
         } while(true);
 
+        sc.close();
+
     }
     
 }
