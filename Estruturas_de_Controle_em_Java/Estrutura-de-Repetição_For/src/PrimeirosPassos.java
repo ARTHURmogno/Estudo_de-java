@@ -4,6 +4,9 @@ class PrimeirosPassos {
         /**
          * De 1 á 10 de forma decrescente:
          * ainda estamos em Primeiros Passos:
+         * 
+         *  utilize for quando você sabe a quantidade de repetições.
+         * 
          */
         
         for(int x = 10; x >= 1; x--) {

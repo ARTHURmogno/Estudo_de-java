@@ -5,5 +5,10 @@ public class PrimeirosPassos0 {
             System.out.println(t);
         }
     }
+
+    /*
+    *  utilize for quando você sabe a quantidade de repetições.
+    *
+    */
     
 }

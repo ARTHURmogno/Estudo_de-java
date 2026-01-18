@@ -1,3 +1,8 @@
+/**
+ *    utilize for quando você sabe a quantidade de repetições.
+ * 
+ */
+
 public class Triangulo {
     public static void main(String[] args) {
         
@@ -8,6 +13,7 @@ public class Triangulo {
             //System.out.println(" * ");
         }
         System.out.println("");
+
     }
 }
     

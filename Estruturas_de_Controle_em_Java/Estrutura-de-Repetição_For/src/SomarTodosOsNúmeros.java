@@ -6,7 +6,10 @@ public class SomarTodosOsNúmeros {
         //Scanner scanner = new Scanner(System.in);
         
        /*  System.out.println("Quer Saber um Número Especifico: ");
-        int numero = scanner.nextInt();  */
+        int numero = scanner.nextInt();  
+        *
+        *  utilize for quando você sabe a quantidade de repetições.
+        */
 
         int soma= 0;
 

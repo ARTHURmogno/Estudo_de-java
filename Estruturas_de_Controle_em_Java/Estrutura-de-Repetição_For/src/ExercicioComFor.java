@@ -9,7 +9,7 @@
  * 
  * E switch case para escolher o tipo de tabuada.
  * 
- *    
+ *    utilize for quando você sabe a quantidade de repetições.
  *          
  */
 
