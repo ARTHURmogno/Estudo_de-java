@@ -19,7 +19,7 @@ public class RecebendoValoresAté0 {
         }
 
         numeros.add(n);
-
+ 
         }
 
         int maior = numeros.get(0);
@@ -35,6 +35,9 @@ public class RecebendoValoresAté0 {
                 pares++;
             }
         }
+
+
+
 
         System.out.println("A soma dos Números é " + soma);
         System.out.println("O maior Número é " + maior);
