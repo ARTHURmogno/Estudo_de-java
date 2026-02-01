@@ -7,6 +7,7 @@ public class Main {
 
 
         System.out.printf("Temos um Livro: %s com %d paginas.%n ", l1.titulo, l1.paginas);
+        System.out.println("Poo" );
     }
     
 }
