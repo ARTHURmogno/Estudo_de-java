@@ -1,10 +1,6 @@
 package ListaCom05Pessoas;
 
-import java.util.List;
-import java.util.ArrayList;
-
 public class Pessoa {
-    List<String> nomes = new ArrayList<>();
 
     private String nome;
     private int idade;
@@ -32,8 +28,8 @@ public class Pessoa {
     public boolean ehMaiorDeIdade() {
         return idade >= 18;
     }
-    
 
+    
 
     
 }

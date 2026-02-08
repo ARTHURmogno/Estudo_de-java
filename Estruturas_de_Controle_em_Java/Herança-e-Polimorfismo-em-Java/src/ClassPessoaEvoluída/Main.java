@@ -3,7 +3,7 @@ package ClassPessoaEvoluída;
 public class Main {
     public static void main(String[] args) {
 
-        Pessoa p1 = new Pessoa("ana ", 3);
+        Pessoa p1 = new Pessoa("ana ", 6);
         Pessoa p2 = new Pessoa("juju", 33);
 
         System.out.printf("Seu Nome é %s tém %d anos é Maior de Idade %b, ultima Letro de seu Nome %c %n",
