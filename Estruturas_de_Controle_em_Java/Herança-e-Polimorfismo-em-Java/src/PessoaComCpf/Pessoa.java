@@ -5,37 +5,36 @@ import java.util.Objects;
 public class Pessoa {
 
     private String nome;
-    private int cpf;
+    private String cpf;
 
-    public Pessoa(String nome, int cpf) {
+    public Pessoa(String nome, String cpf) {
         if (nome == null || nome.isBlank()) {
             throw new IllegalArgumentException("Nome não pode ser vazio nem nulo. ");
         }
-        this.nome = nome;
-        this.cpf = cpf;
+        this.nome = nome.trim().toLowerCase();
+        this.cpf = cpf.trim();
     }
 
     public String getNome() {
         return nome;
     }
 
-    public int getCpf() {
+    public String  getCpf() {
         return cpf;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Pessoa)) return false;
 
         Pessoa pessoa = (Pessoa) o;
 
-        return Double.compare(pessoa.cpf, cpf) == 0 &&
-               nome.equals(pessoa.nome);
+        return cpf.equals(pessoa.cpf);
     }
 
-    public int HashCode() {
-        return Objects.hash(nome, cpf);
+    public int hashCode() {
+        return Objects.hash(cpf);
     }
 
 
