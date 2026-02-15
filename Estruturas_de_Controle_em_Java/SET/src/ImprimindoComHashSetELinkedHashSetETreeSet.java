@@ -6,8 +6,6 @@ import java.util.TreeSet;
 public class ImprimindoComHashSetELinkedHashSetETreeSet {
     public static void main(String[] args) {
         Set<Integer> numeros01 = new LinkedHashSet<>();
-        //Set<Integer> numeros02 = new HashSet<>(numeros01);
-        //Set<Integer> numeros03 = new TreeSet<>(numeros02);
 
         numeros01.add(50);
         numeros01.add(10);

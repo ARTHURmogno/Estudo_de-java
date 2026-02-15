@@ -11,9 +11,8 @@ public class Gerente extends Funcionário {
         this.adm = adm;
     }    
 
-    public void String setRelatorioFinanceiro(String relatorioFinanceiro) {
+    public void setRelatorioFinanceiro(String relatorioFinanceiro) {
         System.out.println("O relatório Está Sendo Feito: ");
-        
     }
 
     public String getRelatorioFinanceiro() {
