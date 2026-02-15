@@ -9,7 +9,7 @@ public class Produto {
 
     public Produto(String nome, double preco) {
         if (nome == null || nome.isBlank()) {
-            throw new IllegalArgumentException("Nome não pode ser nulo nem Vasio. ");
+            throw new IllegalArgumentException("Nome não pode ser nulo nem Vazio. ");
         }
         if (preco <= 0) {
             throw new IllegalArgumentException("Preco não pode ser (0). ");
@@ -33,8 +33,9 @@ public class Produto {
 
         Produto produto = (Produto) o;
 
-        return Double.compare(produto.preco, preco) == 0 &&
-               nome.equals(produto.nome);
+        return nome.equals(produto.nome) &&
+            Double.compare(produto.preco, preco) == 0;
+               
     }
 
     @Override
