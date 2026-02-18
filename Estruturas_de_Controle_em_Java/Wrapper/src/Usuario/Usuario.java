@@ -7,10 +7,9 @@ public class Usuario {
     private Double saldo;
     private Boolean ativo;
 
-    private String exibirStatus;
 
     public Usuario(String nome, Integer idade, Double saldo, Boolean ativo) {
-        if (nome == null && nome.isBlank()) {
+        if (nome == null || nome.isBlank()) {
             throw new IllegalArgumentException("Nome não pode ser nulo nem vazio. ");
         }
         if (idade <= 0) {
@@ -18,15 +17,14 @@ public class Usuario {
         }
         if (saldo < 0) {
             throw new IllegalArgumentException("Saldo não pode ser negativo. ");
-        } 
+        }
         if (ativo == null) {
-            throw new IllegalArgumentException("Status do Ueuario não pode ser Negativo. ");
+            throw new IllegalArgumentException("Status não pode ser nulo. ");
         }
         this.nome = nome;
         this.idade = idade;
         this.saldo = saldo;
         this.ativo = ativo;
-        this.exibirStatus = exibirStatus;
     }
 
     public String getNome() {
@@ -45,13 +43,25 @@ public class Usuario {
         return ativo;
     }
 
-    public void setExibirStatus() {
-        
-        System.out.printf("Status do Usuario: nome %s, idade %d saldo %b Comto está ativa %c. ");
+    public void exibirStatus() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Saldo Em Conta: " + saldo);
+        System.out.println("Status: " + (ativo ? "Ativo" : "Inativa"));
+
     }
 
-    public  String getExibirStatus(/*String nome, Integer idade, Double saldo, Boolean ativo */) {
-        return exibirStatus;
+    public void fazerCompra(Double valor) {
+        if (valor > saldo) {
+            System.out.println("Saldo Insuficiente. Saldo atual: R$ " + saldo);
+        } else {
+            this.saldo -= valor;
+            System.out.println("Saldo Atualizado.Novo saldo: R$ " + saldo);
+        }
+    }
+
+    public boolean ehMaiorDeIndade() {
+        return idade >= 18;
     }
     
 }
