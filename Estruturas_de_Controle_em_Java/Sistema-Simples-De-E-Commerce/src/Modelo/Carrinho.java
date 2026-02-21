@@ -8,15 +8,17 @@ public class Carrinho {
     private List<Produto> produtos = new ArrayList<>();
 
     public void adicionarProduto(Produto produto) {
-        produtos.add(p);
+        produtos.add(produto);
     }
 
     public double calculaTotal() {
-        for(int i = 0; i < produtos.size(); i++) {
-            for (int n : preco) {
+        double total = 0;
 
-            }
+        for (Produto p : produtos) {
+            total += p.getPreco();
         }
+
+        return total;
     }
 
 }
