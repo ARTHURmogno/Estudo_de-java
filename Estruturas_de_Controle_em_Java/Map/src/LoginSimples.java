@@ -22,9 +22,6 @@ public class LoginSimples {
         } else {
             System.out.println("Usuário ou Senha inválido. ");
         }
-        /*if (usuario.get(login).equals(senha)) {
-            System.out.println("Usuário ou Senha inválido. ");
-        } */
 
             sc.close();
         
