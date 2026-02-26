@@ -28,9 +28,24 @@ public class Main {
         switch(opcao) {
             case 1: 
             System.out.println("Informe o número da conta: ");
-            Integer opcao1 = sc.nextInt();
+            Integer numConta = sc.nextInt();
 
-            if (usuarios.containskey(conta) && usuarios.get(conta).equals(salso)) {
+            if (usuarios.containsKey(numConta)) {
+                usuarios.values();
+            } else {
+                System.out.println("Número da Conta Não encontrada. ");
+            }
+            break;
+            case 2:
+                System.out.println("Informe o Número da conta: ");
+                numConta = sc.nextInt();
+
+                if (usuarios.containsKey(numConta)) {
+                    System.out.println("Informe o Valor: ");
+                    Double addSaldo = sc.nextDouble();
+                    usuarios.put(usuarios, usuarios.get(usuarios) + addSaldo);
+                }
+
 
             }
         }
@@ -42,4 +57,4 @@ public class Main {
 
     }
     
-}
+
