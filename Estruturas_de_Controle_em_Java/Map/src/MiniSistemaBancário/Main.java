@@ -11,9 +11,10 @@ public class Main {
 
         usuarios.put(1001, 3500.00);
 
+        boolean executando = true;
         Integer opcao = 0;
 
-        while(opcao != 4) {
+        while(executando) {
 
         System.out.println("======================");
         System.out.println("1 - Consultar Saldo: ");
@@ -21,9 +22,8 @@ public class Main {
         System.out.println("3 Sacar: ");
         System.out.println("0 - Sair: ");
         opcao = sc.nextInt();
-        System.out.println("======================");
-
         System.out.println("Escalha um opção: ");
+        System.out.println("======================");
 
         switch(opcao) {
             case 1: 
@@ -31,7 +31,7 @@ public class Main {
             Integer numConta = sc.nextInt();
 
             if (usuarios.containsKey(numConta)) {
-                usuarios.values();
+                System.out.println("Saldo da Conta: " + usuarios.get(numConta));
             } else {
                 System.out.println("Número da Conta Não encontrada. ");
             }
@@ -40,21 +40,56 @@ public class Main {
                 System.out.println("Informe o Número da conta: ");
                 numConta = sc.nextInt();
 
+                System.out.println("Informe o Valor: ");
+                Double addSaldo = sc.nextDouble();
+
                 if (usuarios.containsKey(numConta)) {
+                    usuarios.put(numConta, usuarios.get(numConta) + addSaldo);
+                    System.out.println("Novo saldo: " + usuarios.get(numConta));
+                } else {
+                    System.out.println("Conta não encontrado! ");
+                }
+                break;
+                case 3:
+                    System.out.println("Informe o número da conta. ");
+                    numConta = sc.nextInt();
+
                     System.out.println("Informe o Valor: ");
-                    Double addSaldo = sc.nextDouble();
-                    usuarios.put(usuarios, usuarios.get(usuarios) + addSaldo);
+                    Double saque = sc.nextDouble();
+
+                    if (usuarios.containsKey(numConta)) {
+                        if (usuarios.get(numConta) >= saque) {
+                            usuarios.put(numConta, usuarios.get(numConta) - saque);
+                            System.out.println("Saque realizado com sucesso! ");
+                            System.out.println("Novo saldo: " + usuarios.get(numConta));
+                        } else {
+                            System.out.println("Saldo insuficiente! ");
+                        }
+                        } else {
+                            System.out.println("Conta não encontrada! ");
+                        }
+                        break;
+
+                        case 0:
+                            System.out.println("Encerrando sistema... ");
+                            executando = false;
+                            break;
+
+                            default:
+                                System.out.println("Opção Inválida");
+                    }
+
                 }
 
 
+                sc.close();
             }
-        }
 
         }
 
 
 
 
-    }
+    
     
 
