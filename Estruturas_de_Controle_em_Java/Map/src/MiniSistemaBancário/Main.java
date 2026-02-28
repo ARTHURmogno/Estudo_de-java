@@ -19,10 +19,10 @@ public class Main {
         System.out.println("======================");
         System.out.println("1 - Consultar Saldo: ");
         System.out.println("2 - Depositar: ");
-        System.out.println("3 Sacar: ");
+        System.out.println("3 - Sacar: ");
         System.out.println("0 - Sair: ");
-        opcao = sc.nextInt();
         System.out.println("Escalha um opção: ");
+        opcao = sc.nextInt();
         System.out.println("======================");
 
         switch(opcao) {
@@ -44,7 +44,11 @@ public class Main {
                 Double addSaldo = sc.nextDouble();
 
                 if (usuarios.containsKey(numConta)) {
+                    if (addSaldo > 0) {
                     usuarios.put(numConta, usuarios.get(numConta) + addSaldo);
+                    } else {
+                        System.out.println("Valor inválido. ");
+                    }
                     System.out.println("Novo saldo: " + usuarios.get(numConta));
                 } else {
                     System.out.println("Conta não encontrado! ");
@@ -58,7 +62,7 @@ public class Main {
                     Double saque = sc.nextDouble();
 
                     if (usuarios.containsKey(numConta)) {
-                        if (usuarios.get(numConta) >= saque) {
+                        if (saque > 0 && usuarios.get(numConta) >= saque) {
                             usuarios.put(numConta, usuarios.get(numConta) - saque);
                             System.out.println("Saque realizado com sucesso! ");
                             System.out.println("Novo saldo: " + usuarios.get(numConta));
