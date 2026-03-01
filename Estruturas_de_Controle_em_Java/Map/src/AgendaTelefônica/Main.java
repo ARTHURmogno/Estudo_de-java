@@ -18,21 +18,21 @@ public class Main {
             System.out.println("  1 - Cadastrar contato: ");
             System.out.println("  2 - Buscar contato: ");
             System.out.println("  3 - Remover contato: ");
-            System.out.println("  4 - Remover contato: ");
+            System.out.println("  4 - Listar contatos: ");
             System.out.println("  0 - Sair: ");
             System.out.println("Faça sua escolha. ");
+            System.out.println("==========================");
             opcao = sc.nextInt();
-            System.out.println("===========================");
 
             switch(opcao) {
                 case 1: 
                 System.out.println("Informe o nome do contato: ");
-                String nome = sc.next();
+                String nome = sc.nextLine();
 
                 System.out.println("Informe o número: ");
-                String telefoneE = sc.next();
+                String telefoneE = sc.nextLine();
 
-                if (nome == null && nome.isBlank() && telefoneE == null && telefoneE.isBlank()) {
+                if (nome == null && nome.isBlank() || telefoneE == null && telefoneE.isBlank()) {
                     System.out.println("Contato Invalido. ");
                 } else {
                     agenda.put(nome, telefoneE);
@@ -47,8 +47,37 @@ public class Main {
                     } else {
                         System.out.println("Contato não encontrado ou nome inválido. ");
                     }
+                    break;
+                    case 3:
+                        System.out.println("Informe o nome do Contato: ");
+                        nome = sc.next();
+
+                        if (agenda.containsKey(nome)) {
+                            System.out.println("Contato Removido Com sucesso. ");
+                            agenda.remove(nome);
+                        } else {
+                            System.out.println("Contato não encontrado. ");
+                        }
+                        break;
+                        case 4:
+                            System.out.println("Contatos: " + agenda.size());
+                            for (Map.Entry<String, String> entry : agenda.entrySet()) {
+                                System.out.println(entry.getKey() + " > " + entry.getValue());
+                            }
+                            break;
+                            case 0:
+                                System.out.println("Encerrando programa... ");
+                                executando = false;
+                                break;
+
+                                default: 
+                                System.out.println("Opção inválida. ");
+
+
             }
         }
+
+        sc.close();
     }
     
 }

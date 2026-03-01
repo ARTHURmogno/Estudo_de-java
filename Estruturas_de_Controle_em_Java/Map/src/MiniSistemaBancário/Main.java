@@ -22,8 +22,8 @@ public class Main {
         System.out.println("3 - Sacar: ");
         System.out.println("0 - Sair: ");
         System.out.println("Escalha um opção: ");
-        opcao = sc.nextInt();
         System.out.println("======================");
+        opcao = sc.nextInt();
 
         switch(opcao) {
             case 1: 
