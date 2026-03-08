@@ -23,5 +23,27 @@ public class Aluno {
     public double getNota() {
         return nota;
     }
+
+    public void setNota(double nota) {
+        if (nota >= 0 && nota <= 10) {
+            this.nota = nota;
+        } else {
+            System.out.println("Nota Inválida.");
+        }
+    }
+
+    public boolean aprovado() {
+        return nota >= 7;
+    }
+
+    public String status() {
+        if (nota >= 7) {
+            return ("Aprovado");
+        } else if (nota >= 5) {
+            return("Recuperação");
+        } else {
+            return("Reprovado");
+        }
+    }
     
 }
