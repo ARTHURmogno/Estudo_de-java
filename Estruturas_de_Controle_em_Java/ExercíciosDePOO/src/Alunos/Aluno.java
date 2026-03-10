@@ -32,10 +32,6 @@ public class Aluno {
         }
     }
 
-    public boolean aprovado() {
-        return nota >= 7;
-    }
-
     public String status() {
         if (nota >= 7) {
             return ("Aprovado");
