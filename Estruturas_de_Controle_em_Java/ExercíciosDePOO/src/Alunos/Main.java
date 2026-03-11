@@ -18,6 +18,8 @@ public class Main {
             System.out.println(" 1 - Cadastrar aluno: ");
             System.out.println(" 2 - Buscar aluno: ");
             System.out.println(" 3 - Listar aluno: ");
+            System.out.println(" 4 - Atualizar nota: ");
+            System.out.println(" 5 - Remover aluno: ");
             System.out.println(" 0 - Sair: ");
 
             int opcao = sc.nextInt();
@@ -65,6 +67,34 @@ public class Main {
                              entry.getKey(), aluno.getNome(), aluno.getNota());
                         }
                              break;
+                        case 4:
+                            System.out.println("Infome o ID do aluno: ");
+                            id = sc.nextInt();
+
+                            aluno = alunos.get(id);
+
+                            if (alunos.containsKey(id)) {
+                                System.out.println("Informe a nova nota: ");
+                                double novaNota = sc.nextDouble();
+
+                                aluno.setNota(novaNota);
+                                System.out.println("Nota atualizada com sucesso!: ");
+                            } else {
+                                System.out.println("Aluno nâo encontrado. ");
+                            }
+                            break;
+                        case 5:
+                            System.out.println("Informe o ID do aluno: ");
+                            id = sc.nextInt();
+
+                            aluno = alunos.get(id);
+
+                            if (alunos.containsKey(id)) {
+                                alunos.remove(id);
+                                System.out.println("Aluno removido com sucesso! ");
+                            } else {
+                                System.out.println("Aluno não encontrado. ");
+                            }
                         case 0:
                             estaFuncionando = false;
                             System.out.println("Fim. ");
