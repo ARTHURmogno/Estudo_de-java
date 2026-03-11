@@ -33,7 +33,7 @@ public class Main {
                     System.out.println("Informe o nome do aluno: ");
                     String nome = sc.nextLine();
 
-                    System.out.println("Informe  matricula do novo aluno: ");
+                    System.out.println("Informe nota do aluno: ");
                     double nota = sc.nextDouble();
 
                     Aluno novoAluno = new Aluno(id, nome, nota);
@@ -53,7 +53,7 @@ public class Main {
                         Aluno aluno = alunos.get(id);
 
                         if (alunos.containsKey(id)) {
-                            System.out.printf("nome: %s nota: %.1f Status: %\n",
+                            System.out.printf("nome: %s nota: %.1f Status: %s\n",
                              aluno.getNome(), aluno.getNota(), aluno.status());
                         } else {
                             System.out.println("Aluno não encontrado. ");
@@ -95,6 +95,7 @@ public class Main {
                             } else {
                                 System.out.println("Aluno não encontrado. ");
                             }
+                            break;
                         case 0:
                             estaFuncionando = false;
                             System.out.println("Fim. ");
