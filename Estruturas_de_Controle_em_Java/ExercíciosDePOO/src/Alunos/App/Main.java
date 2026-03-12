@@ -1,20 +1,19 @@
-package Alunos;
+package Alunos.App;
 
-import java.util.Map;
-import java.util.HashMap;
+import Alunos.Modelo.Aluno;
 import java.util.Scanner;
+import Alunos.Serviço.SistemaAluno;
 
 public class Main {
     public static void main(String[] args) {
-        Map<Integer, Aluno> alunos = new HashMap<>();
         Scanner sc = new Scanner(System.in);
-
+        SistemaAluno sistema = new SistemaAluno();
+;
         boolean estaFuncionando = true;
 
         while(estaFuncionando) {
 
-            System.out.println("==================");
-            System.out.println("Opções");
+            System.out.println("\n====Sistema de Aluno====");
             System.out.println(" 1 - Cadastrar aluno: ");
             System.out.println(" 2 - Buscar aluno: ");
             System.out.println(" 3 - Listar aluno: ");
@@ -36,65 +35,42 @@ public class Main {
                     System.out.println("Informe nota do aluno: ");
                     double nota = sc.nextDouble();
 
-                    Aluno novoAluno = new Aluno(id, nome, nota);
-
-                    if (alunos.containsKey(id)) {
-                        System.out.println("Aluno já existe! ");
-                    } else {
-                         alunos.put(id, novoAluno);
-                        System.out.println("Aluno cadastrado com sucesso! ");
-                    }
+                    sistema.cadastraAluno(new Aluno(id, nome, nota));
                     break;
                     case 2:
 
                         System.out.println("Informe o ID do aluno: ");
                         id = sc.nextInt();
 
-                        Aluno aluno = alunos.get(id);
+                        Aluno aluno = sistema.buscarAluno(id);
 
-                        if (alunos.containsKey(id)) {
+                        if (aluno != null) {
                             System.out.printf("nome: %s nota: %.1f Status: %s\n",
                              aluno.getNome(), aluno.getNota(), aluno.status());
                         } else {
                             System.out.println("Aluno não encontrado. ");
                         }
+
                         break;
                         case 3:
+                            sistema.listaAlunos();
 
-                            for (Map.Entry<Integer, Aluno> entry : alunos.entrySet()) {
-                            aluno = entry.getValue();
-                            System.out.printf("ID: %d Nome: %s Nota: %.1f Status: %s\n",
-                             entry.getKey(), aluno.getNome(), aluno.getNota());
-                        }
                              break;
                         case 4:
                             System.out.println("Infome o ID do aluno: ");
                             id = sc.nextInt();
 
-                            aluno = alunos.get(id);
-
-                            if (alunos.containsKey(id)) {
                                 System.out.println("Informe a nova nota: ");
                                 double novaNota = sc.nextDouble();
 
-                                aluno.setNota(novaNota);
-                                System.out.println("Nota atualizada com sucesso!: ");
-                            } else {
-                                System.out.println("Aluno nâo encontrado. ");
-                            }
+                                sistema.atualizarNota(id, novaNota);
+
                             break;
                         case 5:
                             System.out.println("Informe o ID do aluno: ");
                             id = sc.nextInt();
 
-                            aluno = alunos.get(id);
-
-                            if (alunos.containsKey(id)) {
-                                alunos.remove(id);
-                                System.out.println("Aluno removido com sucesso! ");
-                            } else {
-                                System.out.println("Aluno não encontrado. ");
-                            }
+                            sistema.removerAluno(id);
                             break;
                         case 0:
                             estaFuncionando = false;
