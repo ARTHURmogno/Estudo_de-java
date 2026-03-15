@@ -47,19 +47,7 @@ public class SistemaAluno {
         }
     }
 
-    public double calcularMediaTurma(double nota) {
-        double media = 0;
-        double resultado = 0;
-        int aluno0 = 0;
-
-    for (Aluno a : alunos.values()) {
-        media += nota;
-        aluno0++;
-    }
-    for (Aluno b : alunos.values()) {
-        resultado = media / aluno0;
-    }
 
     }
     
-}
+

@@ -1,4 +1,4 @@
-package Alunos;
+package Alunos.Modelo;
 
 public class Aluno {
 
