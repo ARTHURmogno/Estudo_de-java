@@ -11,7 +11,6 @@ public class Teste {
 
         double somaNotas = 0;
         double maiorNota = 0;
-        double melhorAluno = 0;
 
         Aluno aluno1 = new Aluno(456, "Dudu", 7.0);
         Aluno aluno2 = new Aluno(345, "Duda", 8.0);
@@ -31,6 +30,14 @@ public class Teste {
             }
         }
 
+        for (Aluno x : notas) {
+            Aluno melhorAluno = null;
+
+            if (melhorAluno == null || x.getNota() > melhorAluno.getNota()) {
+                melhorAluno = x;
+            }
+        }
+
         for (Aluno a : notas) {
             if (a.getNota() >= 8) {
                 System.out.printf("Nome: %s Nota: %.1f\n", a.getNome(), a.getNota());
@@ -42,7 +49,8 @@ public class Teste {
 
         System.out.println("A soma dos Notas: " + somaNotas);
         System.out.printf("A Media da turma: %.1f Maior Nota: %.1f\n", media, maiorNota);
-        System.out.println("Melhor aluno: ");
+        System.out.printf("Melhor Aluno: %s Nome: %s Nota: %f\n",
+         melhorAluno.getNome(), melhorAluno.getNota());
         
 
     }
