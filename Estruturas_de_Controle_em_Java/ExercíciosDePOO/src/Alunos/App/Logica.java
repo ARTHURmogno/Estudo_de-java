@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Logica {
     public static void main(String[] args) {
         List<Aluno> test = new ArrayList<>();
+        List<Aluno> aprovado = new ArrayList<>();
 
         int quantidaDeAlunos = 0;
         double somaNotas = 0;
@@ -93,6 +94,17 @@ public class Logica {
                 }
             }
 
+            System.out.println("========================");
+
+            for (Aluno w : test) {
+                if (w.getNota() >= 7) {
+                    aprovado.add(w);
+                    System.out.printf("Aluno: %s Aprovado:\n ", w.getNome());
+                } else {
+                    System.out.printf("Aluno: %s Reprovado:\n ", w.getNome());
+                }
+            }
+
             
 
             mediaNotas = somaNotas / test.size();
@@ -104,7 +116,13 @@ public class Logica {
             System.out.printf("A Maior Nota: %.1f Menor Nota: %.1f\n", maiorNota.getNota(), menorNota.getNota());
             System.out.printf("Melhor Aluno: %.1f Pior Aluno: %.1f\n", melhorAluno.getNota(), piorAluno.getNota());
 
+            for (Aluno i : aprovado) {
+                System.out.println("Lista De Alunos Aprovados: " + i.getNome());
 
+                if (i.getNota() == 10) {
+                    System.out.println("Aluno com Nota 10: " + i.getNome());
+                }
+            }
 
 
 
