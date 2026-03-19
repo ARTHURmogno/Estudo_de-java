@@ -47,6 +47,26 @@ public class SistemaAluno {
         }
     }
 
+    public void buscarMelhorAluno(Aluno alunos) {
+        if (alunos.isEmpty()) {
+            System.out.println("Nenhum aluno cadastrado. ");
+            return;
+        }
+
+        Aluno melhoAluno = null;
+
+        for (Aluno i : alunos.values()) {
+        if (melhoAluno == null || i.getNota() > melhoAluno.getNota()) {
+            melhoAluno = i;
+        }
+    }
+
+    if (melhoAluno != null) {
+        return;
+        System.out.printf("Melhor Aluno: %s Nota: %.1f\n", melhoAluno.getNome(), melhoAluno.getNota());
+    }
+}
+
 
     }
     

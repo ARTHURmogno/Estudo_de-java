@@ -38,7 +38,7 @@ public class Teste {
                 melhorAluno = x;
             }
         }
-        
+
 
         for (Aluno a : notas) {
             if (a.getNota() >= 8) {
@@ -51,7 +51,7 @@ public class Teste {
 
         System.out.println("A soma dos Notas: " + somaNotas);
         System.out.printf("A Media da turma: %.1f Maior Nota: %.1f\n", media, maiorNota);
-        System.out.printf("Melhor Aluno: Nome: Nota: %f\n",
+        System.out.printf("Melhor Aluno: Nome: %s Nota: %.1f\n",
          melhorAluno.getNome(), melhorAluno.getNota());
         
 

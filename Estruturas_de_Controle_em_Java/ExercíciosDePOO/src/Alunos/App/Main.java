@@ -8,7 +8,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         SistemaAluno sistema = new SistemaAluno();
-;
+
+
         boolean estaFuncionando = true;
 
         while(estaFuncionando) {
@@ -19,6 +20,7 @@ public class Main {
             System.out.println(" 3 - Listar aluno: ");
             System.out.println(" 4 - Atualizar nota: ");
             System.out.println(" 5 - Remover aluno: ");
+            System.out.println(" 6 - Melhor Aluno: ");
             System.out.println(" 0 - Sair: ");
 
             int opcao = sc.nextInt();
@@ -72,6 +74,12 @@ public class Main {
 
                             sistema.removerAluno(id);
                             break;
+
+                        case 6:
+                            sistema.buscarMelhorAluno();
+
+                        break;
+
                         case 0:
                             estaFuncionando = false;
                             System.out.println("Fim. ");
