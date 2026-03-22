@@ -12,6 +12,7 @@ public class SistemaAluno {
         if (alunos.containsKey(aluno.getId())) {
             System.out.println("Aluno já existe.");
         } else {
+            alunos.put(aluno.getId(), aluno);
             System.out.println("Aluno cadastrado com sucesso.");
         }
     }
@@ -47,24 +48,24 @@ public class SistemaAluno {
         }
     }
 
-    public void buscarMelhorAluno(Aluno alunos) {
+    public Aluno buscarMelhorAluno() {
         if (alunos.isEmpty()) {
-            System.out.println("Nenhum aluno cadastrado. ");
-            return;
+            //System.out.println("Nenhum aluno cadastrado. ");
+            return null;
         }
 
-        Aluno melhoAluno = null;
+        Aluno melhorAluno = null;
 
         for (Aluno i : alunos.values()) {
-        if (melhoAluno == null || i.getNota() > melhoAluno.getNota()) {
-            melhoAluno = i;
+        if (melhorAluno == null || i.getNota() > melhorAluno.getNota()) {
+            melhorAluno = i;
         }
     }
 
-    if (melhoAluno != null) {
-        return;
-        System.out.printf("Melhor Aluno: %s Nota: %.1f\n", melhoAluno.getNome(), melhoAluno.getNota());
-    }
+    return melhorAluno;
+
+        //System.out.printf("Melhor Aluno: %s Nota: %.1f\n", melhorAluno.getNome(), melhorAluno.getNota());
+    
 }
 
 

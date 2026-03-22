@@ -76,7 +76,15 @@ public class Main {
                             break;
 
                         case 6:
-                            sistema.buscarMelhorAluno();
+                            Aluno melhor = sistema.buscarMelhorAluno();
+
+
+                         if (melhor != null) {
+                           System.out.printf("Melhor Aluno: %s Nota: %.1f\n",
+                            melhor.getNome(), melhor.getNota());
+                        } else {
+                             System.out.println("Nenhum aluno cadastrado.");
+                        }                           
 
                         break;
 
