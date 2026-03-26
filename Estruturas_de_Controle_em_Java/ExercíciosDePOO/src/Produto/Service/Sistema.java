@@ -43,6 +43,34 @@ public class Sistema {
         return maisCaro;
     }
 
+    public void listaProdutoAcimaDe(double valor) {
+
+        for (Produto p : produtos) {
+
+            if (p.getPreco() > valor) {
+                System.out.printf("Produto: %s Preco: %.1f\n ", p.getNome(), p.getPreco());
+            }
+        }
+    }
+
+    public double calcularMediaPreco() {
+
+        if (produtos.isEmpty()) {
+                return 0;
+            }
+            
+        double soma = 0;
+
+        for (Produto v : produtos) {
+            soma += v.getPreco();
+        }
+        
+        return soma / produtos.size();
+
+    }
+
+
+
 
     
 }
