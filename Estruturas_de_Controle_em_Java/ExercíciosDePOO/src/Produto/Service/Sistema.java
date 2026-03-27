@@ -58,7 +58,7 @@ public class Sistema {
         if (produtos.isEmpty()) {
                 return 0;
             }
-            
+
         double soma = 0;
 
         for (Produto v : produtos) {
@@ -68,6 +68,47 @@ public class Sistema {
         return soma / produtos.size();
 
     }
+
+    public Produto buscarMaisBarrato() {
+
+        Produto maisBarato = null;
+
+        for (Produto n : produtos) {
+            if (maisBarato == null || n.getPreco() < maisBarato.getPreco()) {
+                maisBarato = n;
+            }
+        }
+
+        return maisBarato;
+    }
+
+    public boolean existeProdutoCaro() {
+
+        Produto p = buscaMaisCaro();
+
+            if (p == null && p.getPreco() > 5000) {
+                return true;
+            }
+            return false;
+        }
+
+    public List<Produto> listaDeProdutosCaros(double valor) {
+
+     List<Produto> produtosCaros = new ArrayList<>();
+
+        for (Produto h : produtos) {
+            if (h.getPreco() >= valor) {
+                produtosCaros.add(h);
+            }
+        }
+
+        return produtosCaros;
+
+    }
+
+    
+
+    
 
 
 
