@@ -106,11 +106,17 @@ public class Sistema {
 
     }
 
-    
+    public boolean removerProduto(String nome) {
 
-    
+        Produto p = buscaProdutoPorNome(nome);
 
+        if (p != null) {
+            produtos.remove(p);
+            return true;
+        }
+        return false;
 
+    }
 
 
     
