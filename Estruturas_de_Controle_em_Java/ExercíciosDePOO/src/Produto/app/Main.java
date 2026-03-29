@@ -45,10 +45,10 @@ public class Main {
             System.out.println("Informe o nome do Produto: ");
             String nomeProduto = sc.nextLine();
 
-            Produto p = sistema.buscaProdutoPorNome(nomeProduto);
+            Produto p = sistema.buscarPorNome(nomeProduto);
 
             if (p != null) {
-                System.out.printf("Produto %s Nome: %s Valor %.1f\n", p.getNome(), p.getPreco());
+                System.out.printf("Produto: Nome: %s Valor %.1f\n", p.getNome(), p.getPreco());
             } else {
                 System.out.println("Produto não encontrado. ");
             }

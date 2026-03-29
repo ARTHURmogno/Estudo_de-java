@@ -18,18 +18,6 @@ public class Sistema {
         }
     }
 
-    public Produto buscaProdutoPorNome(String nome) {
-
-        for (Produto o : produtos) {
-            if (o.getNome().equals(nome)) {
-                return o;
-            }
-        }
-
-        return null;
-
-    } 
-
     public Produto buscaMaisCaro() {
         Produto maisCaro = null;
 
@@ -106,16 +94,36 @@ public class Sistema {
 
     }
 
+    public void listaProdutos() {
+
+        for (Produto n : produtos) {
+            if (n != null) {
+                System.out.printf("Produto: Nome: %s Valor: %.1f\n", n.getNome(), n.getPreco());
+            }
+        }
+    }
+
+    public Produto buscarPorNome(String nome) {
+
+        for (Produto b : produtos) {
+            if(b.getNome().equalsIgnoreCase(nome)) {
+                return b;
+            }
+        }
+
+        return null;
+    }
+
     public boolean removerProduto(String nome) {
 
-        Produto p = buscaProdutoPorNome(nome);
+        Produto p = buscarPorNome(nome);
 
-        if (p != null) {
-            produtos.remove(p);
-            return true;
-        }
+            if (p != null || p.getNome().equalsIgnoreCase(nome)) {
+                produtos.remove(p);
+                return true;
+            }
+
         return false;
-
     }
 
 
