@@ -126,6 +126,20 @@ public class Sistema {
         return false;
     }
 
+    public boolean atualizarProduto(double valor, String nome) {
+
+        for (Produto p : produtos) {
+            if (p != null && p.getNome().equalsIgnoreCase(nome)) {
+                p.setPreco(valor);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+
 
     
 }

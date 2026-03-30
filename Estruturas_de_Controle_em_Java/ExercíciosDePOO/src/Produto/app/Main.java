@@ -16,6 +16,7 @@ public class Main {
         System.out.println(" 1 - Adicionar produto: ");
         System.out.println(" 2 - Lista produtos: ");
         System.out.println(" 3 - Buscar produto: ");
+        System.out.println(" 4 - Atualizar valor: ");
         System.out.println(" 0 - Para Sair: ");
 
         int opcao = sc.nextInt();
@@ -52,6 +53,18 @@ public class Main {
             } else {
                 System.out.println("Produto não encontrado. ");
             }
+
+            break;
+            case 4:
+
+            System.out.println("Nome do Produto: ");
+            nomeProduto = sc.nextLine();
+
+            System.out.println("Novo Valor: ");
+            preco = sc.nextDouble();
+
+            sistema.atualizarProduto(preco, nomeProduto);
+            System.out.println("Valor atualizado.");
 
             break;
             case 0:
