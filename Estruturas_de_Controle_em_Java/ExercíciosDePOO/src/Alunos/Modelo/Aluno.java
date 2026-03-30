@@ -7,6 +7,15 @@ public class Aluno {
     private double nota;
 
     public Aluno(int id, String nome, double nota) {
+        if (id < 10000 || id > 99999) {
+            throw new IllegalArgumentException("Digité um ID com 5 dígitos. ");
+        }
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("Nome Inválido. ");
+        }
+        if (nota < 0 || nota > 10) {
+            throw new IllegalArgumentException("Nota Inválida. ");
+        }
         this.id = id;
         this.nome = nome;
         this.nota = nota;
@@ -25,21 +34,11 @@ public class Aluno {
     }
 
     public void setNota(double nota) {
-        if (nota >= 0 && nota <= 10) {
-            this.nota = nota;
-        } else {
-            System.out.println("Nota Inválida.");
+        if (nota < 0 || nota > 10) {
+            throw new IllegalArgumentException("Nota Inválida. ");
         }
+        this.nota = nota;
     }
-
-    public String status() {
-        if (nota >= 7) {
-            return ("Aprovado");
-        } else if (nota >= 5) {
-            return("Recuperação");
-        } else {
-            return("Reprovado");
-        }
-    }
+    
     
 }

@@ -1,74 +1,31 @@
 package Alunos.Serviço;
 
-import Alunos.Modelo.Aluno;
 import java.util.Map;
 import java.util.HashMap;
+import Alunos.Modelo.Aluno;
 
 public class SistemaAluno {
-
     Map<Integer, Aluno> alunos = new HashMap<>();
 
-    public void cadastraAluno(Aluno aluno) {
-        if (alunos.containsKey(aluno.getId())) {
-            System.out.println("Aluno já existe.");
-        } else {
-            alunos.put(aluno.getId(), aluno);
-            System.out.println("Aluno cadastrado com sucesso.");
-        }
+    public void adicionarAluno(Aluno aluno) {
+        alunos.put(aluno.getId(), aluno);
     }
 
-    public Aluno buscarAluno(int id) {
+    public Aluno buscarAlunoPorId(int id) {
         return alunos.get(id);
     }
 
-    public void listaAlunos() {
-        for (Aluno a : alunos.values()) {
-            System.out.printf("ID: %d nome: %s nota: %.1f Status: %s\n",
-             a.getId(), a.getNome(), a.getNota(), a.status());
-        }
-    }
+    public boolean removerAlunoPorId(int id) {
 
-    public void atualizarNota(int id, double novaNota) {
-        Aluno aluno = alunos.get(id);
-
-        if (aluno != null) {
-            aluno.setNota(novaNota);
-            System.out.println("Nota atualizada.");
-        } else {
-            System.out.println("Aluno não encontrado.");
-        }
-    }
-
-    public void removerAluno(int id) {
         if (alunos.containsKey(id)) {
             alunos.remove(id);
-            System.out.println("Aluno removido.");
-        } else {
-            System.out.println("Aluno não encontrado.");
+            return true;
         }
+
+        return false;
     }
 
-    public Aluno buscarMelhorAluno() {
-        if (alunos.isEmpty()) {
-            //System.out.println("Nenhum aluno cadastrado. ");
-            return null;
-        }
-
-        Aluno melhorAluno = null;
-
-        for (Aluno i : alunos.values()) {
-        if (melhorAluno == null || i.getNota() > melhorAluno.getNota()) {
-            melhorAluno = i;
-        }
-    }
-
-    return melhorAluno;
-
-        //System.out.printf("Melhor Aluno: %s Nota: %.1f\n", melhorAluno.getNome(), melhorAluno.getNota());
-    
-}
-
-
+   
     }
     
 
