@@ -55,7 +55,7 @@ public class Main {
 
                         break;
                         case 3:
-                            sistema.listaAlunos();
+                            sistema.listarAlunos();
 
                              break;
                         case 4:
@@ -65,7 +65,7 @@ public class Main {
                                 System.out.println("Informe a nova nota: ");
                                 double novaNota = sc.nextDouble();
 
-                                sistema.atualizarNota(id, novaNota);
+                                sistema.atualizarNotaAluno(id, novaNota);
 
                             break;
                         case 5:

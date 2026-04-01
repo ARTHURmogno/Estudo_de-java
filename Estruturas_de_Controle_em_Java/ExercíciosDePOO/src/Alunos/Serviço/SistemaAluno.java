@@ -25,7 +25,26 @@ public class SistemaAluno {
         return false;
     }
 
-   
+    public void listarAlunos() {
+
+            for (Aluno a : alunos.values()) {
+                System.out.printf("Aluno: ID: %d Nome: %s Nota: %.1f\n ", a.getId(), a.getNome(), a.getNota());
+            }
+        }
+
+        public boolean atualizarNotaAluno(Integer Id, double novaNota) {
+
+            if (alunos.containsKey(Id)) {
+                Aluno a = alunos.get(Id);
+
+                a.setNota(novaNota);
+                return true;
+            }
+
+            return false;
+        }
     }
+
+   
     
 
