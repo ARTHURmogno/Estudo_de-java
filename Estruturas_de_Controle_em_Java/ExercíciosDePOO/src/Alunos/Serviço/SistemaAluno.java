@@ -6,6 +6,7 @@ import Alunos.Modelo.Aluno;
 
 public class SistemaAluno {
     Map<Integer, Aluno> alunos = new HashMap<>();
+    
 
     public void adicionarAluno(Aluno aluno) {
         alunos.put(aluno.getId(), aluno);
@@ -42,6 +43,19 @@ public class SistemaAluno {
             }
 
             return false;
+        }
+
+        public Aluno buscarMelhorAluno() {
+            Aluno melhorAluno = null;
+
+            for (Aluno x : alunos.values()) {
+                if (melhorAluno == null || x.getNota() > melhorAluno.getNota()){
+                    melhorAluno = x;
+
+                }
+            }
+
+            return melhorAluno;
         }
     }
 

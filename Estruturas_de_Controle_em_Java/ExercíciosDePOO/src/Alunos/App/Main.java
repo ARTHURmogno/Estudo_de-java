@@ -7,98 +7,51 @@ import Alunos.Serviço.SistemaAluno;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         SistemaAluno sistema = new SistemaAluno();
 
+        boolean ligado = true;
 
-        boolean estaFuncionando = true;
+        System.out.println("=================");
+        System.out.println(" 1 - Melhor Aluno: ");
+        System.out.println(" 2 - Adicionar Aluno: ");
 
-        while(estaFuncionando) {
+        int opcao = sc.nextInt();
+        sc.nextLine();
 
-            System.out.println("\n====Sistema de Aluno====");
-            System.out.println(" 1 - Cadastrar aluno: ");
-            System.out.println(" 2 - Buscar aluno: ");
-            System.out.println(" 3 - Listar aluno: ");
-            System.out.println(" 4 - Atualizar nota: ");
-            System.out.println(" 5 - Remover aluno: ");
-            System.out.println(" 6 - Melhor Aluno: ");
-            System.out.println(" 0 - Sair: ");
+        while(ligado) {
 
-            int opcao = sc.nextInt();
+            switch(opcao) {
+                case 1: {
 
-            switch (opcao) {
-                case 1:
-                    System.out.println("Informe o ID so aluno: ");
-                    int id = sc.nextInt();
-                    sc.nextLine();
+                    Aluno melhor = sistema.buscarMelhorAluno();
+                    System.out.printf("Aluno: Nome: %s Nota: %.1f\n", melhor.getNome(), melhor.getNota());
 
-                    System.out.println("Informe o nome do aluno: ");
-                    String nome = sc.nextLine();
-
-                    System.out.println("Informe nota do aluno: ");
-                    double nota = sc.nextDouble();
-
-                    sistema.cadastraAluno(new Aluno(id, nome, nota));
                     break;
-                    case 2:
+                }
+                case 2:
 
-                        System.out.println("Informe o ID do aluno: ");
-                        id = sc.nextInt();
+                System.out.println("ID do Aluno: ");
+                int id = sc.nextInt();
 
-                        Aluno aluno = sistema.buscarAluno(id);
+                System.out.println("Nome do Aluno: ");
+                String nome = sc.nextLine();
 
-                        if (aluno != null) {
-                            System.out.printf("nome: %s nota: %.1f Status: %s\n",
-                             aluno.getNome(), aluno.getNota(), aluno.status());
-                        } else {
-                            System.out.println("Aluno não encontrado. ");
-                        }
+                System.out.println("Nota do Aluno: ");
+                double nota = sc.nextDouble();
 
-                        break;
-                        case 3:
-                            sistema.listarAlunos();
+                Aluno alunoA = new Aluno(id, nome, nota);
 
-                             break;
-                        case 4:
-                            System.out.println("Infome o ID do aluno: ");
-                            id = sc.nextInt();
+                sistema.adicionarAluno(id, alunoA);
 
-                                System.out.println("Informe a nova nota: ");
-                                double novaNota = sc.nextDouble();
+                default: 
+                System.out.println("Opção Invalida. ");
 
-                                sistema.atualizarNotaAluno(id, novaNota);
-
-                            break;
-                        case 5:
-                            System.out.println("Informe o ID do aluno: ");
-                            id = sc.nextInt();
-
-                            sistema.removerAluno(id);
-                            break;
-
-                        case 6:
-                            Aluno melhor = sistema.buscarMelhorAluno();
-
-
-                         if (melhor != null) {
-                           System.out.printf("Melhor Aluno: %s Nota: %.1f\n",
-                            melhor.getNome(), melhor.getNota());
-                        } else {
-                             System.out.println("Nenhum aluno cadastrado.");
-                        }                           
-
-                        break;
-
-                        case 0:
-                            estaFuncionando = false;
-                            System.out.println("Fim. ");
-                            break;
-                            default:
-                                System.out.println("Opção inválida. ");
+                break;
             }
+
         }
 
-        sc.close();
+      }
 
     }
-        
-}
