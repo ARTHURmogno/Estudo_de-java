@@ -2,13 +2,13 @@ package Alunos.App;
 
 import Alunos.Modelo.Aluno;
 import java.util.Scanner;
-import Alunos.Serviço.SistemaAluno;
+import Alunos.Serviço.SistemaAluno02;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        SistemaAluno sistema = new SistemaAluno();
+        SistemaAluno02 sistema02 = new SistemaAluno02();
 
         boolean ligado = true;
 
@@ -31,7 +31,7 @@ public class Main {
             switch(opcao) {
                 case 1: {
 
-                    Aluno melhor = sistema.buscarMelhorAluno();
+                    Aluno melhor = sistema02.buscarMelhorAluno();
 
                     if (melhor != null) {
                     System.out.printf("Aluno: Nome: %s Nota: %.1f\n", melhor.getNome(), melhor.getNota());
@@ -55,10 +55,25 @@ public class Main {
                 sc.nextLine();
 
 
-                sistema.adicionarAluno(new Aluno(id, nome, nota));
+                sistema02.adicionarAlunoPorId(new Aluno(id, nome, nota));
                 System.out.println("Cadastro efetuado com sucesso.");
 
                 break;
+                case 3:
+
+                System.out.println("Id do Aluno: ");
+                id = sc.nextInt();
+                sc.nextLine();
+
+                sistema02.removerAlunoPorIdRe(id);
+
+                break;
+                case 5:
+
+                sistema02.listaTodosOsAlunos();
+
+                break;
+
                 case 0:
                     ligado = false;
 
