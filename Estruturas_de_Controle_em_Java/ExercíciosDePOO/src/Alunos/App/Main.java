@@ -68,12 +68,30 @@ public class Main {
                 sistema02.removerAlunoPorIdRe(id);
 
                 break;
+                case 4:
+
+                System.out.println("ID do Aluno: ");
+                id = sc.nextInt();
+
+                sistema02.mostrarAlunoPorId(id);
+
+                break;
                 case 5:
 
                 sistema02.listaTodosOsAlunos();
 
                 break;
+                case 6:
 
+                System.out.println("ID do Aluno. ");
+                id = sc.nextInt();
+
+                System.out.println("Nova Nota! ");
+                nota = sc.nextDouble();
+
+                sistema02.alterarNotaDoAluno(id, nota);
+
+                break;
                 case 0:
                     ligado = false;
 
@@ -87,6 +105,8 @@ public class Main {
             }
 
         }
+
+        sc.close();
 
       }
 
