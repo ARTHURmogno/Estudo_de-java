@@ -1,4 +1,4 @@
-package Alunos.Serviço;
+package Alunos.Servico;
 
 import Alunos.Modelo.Aluno;
 import java.util.Map;

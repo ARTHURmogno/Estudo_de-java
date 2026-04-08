@@ -1,4 +1,4 @@
-package Alunos.Serviço;
+package Alunos.Servico;
 
 import java.util.Map;
 import java.util.HashMap;

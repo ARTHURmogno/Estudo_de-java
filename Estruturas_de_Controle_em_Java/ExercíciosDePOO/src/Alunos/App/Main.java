@@ -2,7 +2,7 @@ package Alunos.App;
 
 import Alunos.Modelo.Aluno;
 import java.util.Scanner;
-import Alunos.Serviço.SistemaAluno02;
+import Alunos.Servico.SistemaAluno02;
 
 public class Main {
     public static void main(String[] args) {

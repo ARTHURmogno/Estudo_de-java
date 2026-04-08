@@ -1,7 +1,7 @@
 package Alunos.App;
 
 import Alunos.Modelo.Aluno;
-import Alunos.Serviço.SistemaAluno;
+import Alunos.Servico.SistemaAluno;
 import java.util.List;
 import java.util.ArrayList;
 
