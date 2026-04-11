@@ -28,10 +28,11 @@ public class SistemadoUsuario {
 
     }
 
-    public boolean adicionarSaldo(int numeroDaConta, double novoSaldo) {
+    public boolean adicionarSaldo(int numeroDaConta, double valor) {
 
-        if (usuarios.containsKey(numeroDaConta) && novoSaldo > 0) {
-            Usuario a = usuarios.get(novoSaldo);
+        if (usuarios.containsKey(numeroDaConta) && valor > 0) {
+            Usuario a = usuarios.get(numeroDaConta);
+            double novoSaldo = a.getSaldo() + valor;
             System.out.println("Saldo adicionado com sucesso: ");
             return true;
         }
@@ -40,6 +41,50 @@ public class SistemadoUsuario {
 
     }
 
+    public boolean sacarSaldo(int numeroDaConta, double valorSaque) {
+
+        if (usuarios.containsKey(numeroDaConta)) {
+            Usuario user = usuarios.get(numeroDaConta);
+
+            if (user.getSaldo() >= valorSaque && valorSaque > 0) {
+                double novoSaldo = user.getSaldo() - valorSaque;
+                user.setSaldo(novoSaldo);
+                System.out.println("Saque efetuado com sucesso. " + novoSaldo);
+                return true;
+            } else {
+            System.out.println("Saldo insuficiente ou volor de saque inválido. ");
+            return false;
+        }
+
+    }
+
+          System.out.println("Conta Não encontrada. ");
+            return false;
     
+    
+    }
+
+    public boolean verificarSaldo(int numeroDaConta) {
+        
+        if (usuarios.containsKey(numeroDaConta)) {
+            Usuario user = usuarios.get(numeroDaConta);
+            System.out.printf("Conta: %d nome: %s saldo: %.20f\n", user.getNumeroDaConta(), user.getNome(), user.getSaldo());
+            return true;
+        }
+
+        System.out.println("Conta não encontrada. ");
+        return false;
+
+    }
+
+
+
+
+
 
 }
+
+
+
+    
+
