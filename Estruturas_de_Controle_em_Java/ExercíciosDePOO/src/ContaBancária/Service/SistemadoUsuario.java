@@ -20,7 +20,9 @@ public class SistemadoUsuario {
 
     public void removerConta(int numeroDaConta) {
 
-        if (usuarios.containsKey(numeroDaConta)) {
+        Usuario user = usuarios.get(numeroDaConta);
+
+        if (user == null) {
             usuarios.remove(numeroDaConta);
         } else {
             System.out.println("Usúario não essiste. ");
@@ -38,6 +40,7 @@ public class SistemadoUsuario {
             return true;
         }
 
+        System.out.println("Conta não existe ou valor inválido. ");
         return false;
 
     }
