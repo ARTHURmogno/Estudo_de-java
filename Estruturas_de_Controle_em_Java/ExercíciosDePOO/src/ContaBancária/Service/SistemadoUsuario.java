@@ -33,7 +33,8 @@ public class SistemadoUsuario {
         if (usuarios.containsKey(numeroDaConta) && valor > 0) {
             Usuario a = usuarios.get(numeroDaConta);
             double novoSaldo = a.getSaldo() + valor;
-            System.out.println("Saldo adicionado com sucesso: ");
+            a.setSaldo(novoSaldo);
+            System.out.println("Saldo adicionado com sucesso. " + "Novo Saldo: " + novoSaldo);
             return true;
         }
 
@@ -49,7 +50,7 @@ public class SistemadoUsuario {
             if (user.getSaldo() >= valorSaque && valorSaque > 0) {
                 double novoSaldo = user.getSaldo() - valorSaque;
                 user.setSaldo(novoSaldo);
-                System.out.println("Saque efetuado com sucesso. " + novoSaldo);
+                System.out.println("Saque efetuado com sucesso. " + "Novo Saldo: " + novoSaldo);
                 return true;
             } else {
             System.out.println("Saldo insuficiente ou volor de saque inválido. ");
@@ -68,12 +69,21 @@ public class SistemadoUsuario {
         
         if (usuarios.containsKey(numeroDaConta)) {
             Usuario user = usuarios.get(numeroDaConta);
-            System.out.printf("Conta: %d nome: %s saldo: %.20f\n", user.getNumeroDaConta(), user.getNome(), user.getSaldo());
+            System.out.printf("Conta: %d nome: %s saldo: %.2f\n", user.getNumeroDaConta(), user.getNome(), user.getSaldo());
             return true;
         }
 
         System.out.println("Conta não encontrada. ");
         return false;
+
+    }
+
+    public void usuariosLista() {
+
+        for (Usuario user : usuarios.values()) {
+            System.out.printf("Conta: %d Nome: %s Saldo: %.2f\n",
+             user.getNumeroDaConta(), user.getNome(), user.getSaldo());
+        }
 
     }
 
