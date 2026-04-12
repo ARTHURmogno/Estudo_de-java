@@ -21,6 +21,7 @@ public class Main {
             System.out.println(" 04 - Sacar saldo: ");
             System.out.println(" 05 - Verificar saldo: ");
             System.out.println(" 06 - Lista usúarios: ");
+            System.out.println(" 07 - Transferir entre contas. ");
             System.out.println(" 0 - Para Sair: ");
 
             int opcao = sc.nextInt();
@@ -92,6 +93,23 @@ public class Main {
                 case 6:
 
                 sistema.usuariosLista();
+
+                break;
+                case 7:
+
+                System.out.println("Conta enviar: ");
+                numeroConta = sc.nextInt();
+                sc.nextLine();
+
+                System.out.println("Conta receber: ");
+                int numeroConta02 = sc.nextInt();
+                sc.nextLine();
+
+                System.out.println("Informe o Valor: ");
+                double valorASerTreansferido = sc.nextDouble();
+                sc.nextLine();
+
+                sistema.transferenciaEntreContas(numeroConta, numeroConta02, valorASerTreansferido);
 
                 break;
                 case 0:

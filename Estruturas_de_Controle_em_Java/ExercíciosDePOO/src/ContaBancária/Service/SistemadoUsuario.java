@@ -90,6 +90,24 @@ public class SistemadoUsuario {
 
     }
 
+    public boolean transferenciaEntreContas(int numeroConta, int numeroConta02, double valorDaTransferencio) {
+        Usuario user01 = usuarios.get(numeroConta);
+        Usuario user02 = usuarios.get(numeroConta02);
+
+        if (user01 != null && user02 != null && valorDaTransferencio > 0 && user01.getSaldo() >= valorDaTransferencio) {
+        
+            user01.setSaldo(user01.getSaldo() - valorDaTransferencio);
+            user02.setSaldo(user02.getSaldo() + valorDaTransferencio);
+
+            System.out.println("Transferencia comcluida. ");
+            return true;
+
+        }
+
+        return false;
+
+    }
+
 
 
 
