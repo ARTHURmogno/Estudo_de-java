@@ -52,6 +52,7 @@ public class Main {
                 System.out.println("Número da conta: ");
                 numeroConta = sc.nextInt();
                 sc.nextLine();
+
                 sistema.removerConta(numeroConta);
 
                 break;
@@ -65,7 +66,12 @@ public class Main {
                 saldoConta = sc.nextDouble();
                 sc.nextLine();
 
-                sistema.adicionarSaldo(numeroConta, saldoConta);
+                if (sistema.adicionarSaldo(numeroConta, saldoConta)) {
+                    System.out.println("Saldo adicionado com sucesso. ");
+                    sistema.verificarSaldo(numeroConta);
+                } else {
+                    System.out.println("Conta não existe ou valor inválido. ");
+                }
 
                 break;
                 case 4:

@@ -32,15 +32,15 @@ public class SistemadoUsuario {
 
     public boolean adicionarSaldo(int numeroDaConta, double valor) {
 
-        if (usuarios.containsKey(numeroDaConta) && valor > 0) {
-            Usuario a = usuarios.get(numeroDaConta);
+        Usuario a = usuarios.get(numeroDaConta);
+
+        if (a != null && valor > 0) {
             double novoSaldo = a.getSaldo() + valor;
             a.setSaldo(novoSaldo);
-            System.out.println("Saldo adicionado com sucesso. " + "Novo Saldo: " + novoSaldo);
             return true;
         }
 
-        System.out.println("Conta não existe ou valor inválido. ");
+        
         return false;
 
     }
@@ -69,9 +69,10 @@ public class SistemadoUsuario {
     }
 
     public boolean verificarSaldo(int numeroDaConta) {
+
+        Usuario user = usuarios.get(numeroDaConta);
         
-        if (usuarios.containsKey(numeroDaConta)) {
-            Usuario user = usuarios.get(numeroDaConta);
+        if (user != null) {
             System.out.printf("Conta: %d nome: %s saldo: %.2f\n", user.getNumeroDaConta(), user.getNome(), user.getSaldo());
             return true;
         }
