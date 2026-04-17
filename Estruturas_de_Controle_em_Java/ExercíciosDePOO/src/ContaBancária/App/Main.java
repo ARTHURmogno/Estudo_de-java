@@ -19,7 +19,7 @@ public class Main {
             System.out.println(" 02 - Remover conta: ");
             System.out.println(" 03 - Adicionar saldo: ");
             System.out.println(" 04 - Sacar saldo: ");
-            System.out.println(" 05 - Verificar saldo: ");
+            System.out.println(" 05 - Verificar conta: ");
             System.out.println(" 06 - Lista usúarios: ");
             System.out.println(" 07 - Transferir entre contas. ");
             System.out.println(" 0 - Para Sair: ");
@@ -68,7 +68,7 @@ public class Main {
 
                 if (sistema.adicionarSaldo(numeroConta, saldoConta)) {
                     System.out.println("Saldo adicionado com sucesso. ");
-                    sistema.verificarSaldo(numeroConta);
+                    sistema.buscarConta(numeroConta);
                 } else {
                     System.out.println("Conta não existe ou valor inválido. ");
                 }
@@ -93,7 +93,14 @@ public class Main {
                 numeroConta = sc.nextInt();
                 sc.nextLine();
 
-                sistema.verificarSaldo(numeroConta);
+                 Usuario user00 = sistema.buscarConta(numeroConta);
+
+                if (sistema.buscarConta(numeroConta) != null) {
+                    System.out.printf("Conta: %d Nome: %s Saldo: %.2f\n ", 
+                    user00.getNumeroDaConta(), user00.getNome(), user00.getSaldo());
+                } else {
+                    System.out.println("Conta não encontrada. ");
+                }
 
                 break;
                 case 6:
@@ -115,7 +122,9 @@ public class Main {
                 double valorASerTreansferido = sc.nextDouble();
                 sc.nextLine();
 
-                sistema.transferenciaEntreContas(numeroConta, numeroConta02, valorASerTreansferido);
+                String resultado = sistema.transferenciaEntreContas(numeroConta, numeroConta02, valorASerTreansferido);
+
+                System.out.println(resultado);
 
                 break;
                 case 0:

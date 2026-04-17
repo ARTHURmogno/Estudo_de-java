@@ -40,7 +40,7 @@ public class SistemadoUsuario {
             return true;
         }
 
-        
+
         return false;
 
     }
@@ -68,17 +68,15 @@ public class SistemadoUsuario {
     
     }
 
-    public boolean verificarSaldo(int numeroDaConta) {
+    public Usuario buscarConta(int numeroDaConta) {
 
         Usuario user = usuarios.get(numeroDaConta);
         
         if (user != null) {
-            System.out.printf("Conta: %d nome: %s saldo: %.2f\n", user.getNumeroDaConta(), user.getNome(), user.getSaldo());
-            return true;
+            return user;
         }
 
-        System.out.println("Conta não encontrada. ");
-        return false;
+        return null;
 
     }
 
@@ -91,21 +89,31 @@ public class SistemadoUsuario {
 
     }
 
-    public boolean transferenciaEntreContas(int numeroConta, int numeroConta02, double valorDaTransferencio) {
+    public String transferenciaEntreContas(int numeroConta, int numeroConta02, double valorDaTransferencio) {
         Usuario user01 = usuarios.get(numeroConta);
         Usuario user02 = usuarios.get(numeroConta02);
 
-        if (user01 != null && user02 != null && valorDaTransferencio > 0 && user01.getSaldo() >= valorDaTransferencio) {
-        
-            user01.setSaldo(user01.getSaldo() - valorDaTransferencio);
-            user02.setSaldo(user02.getSaldo() + valorDaTransferencio);
-
-            System.out.println("Transferencia comcluida. ");
-            return true;
-
+        if (user01 == null) {
+            return "Conta origem não existe. ";
         }
 
-        return false;
+        if (user02 == null) {
+            return "Conta destino não ixiste. ";
+        }
+
+        if (valorDaTransferencio <= 0) {
+            return "Valor inválido. ";
+        }
+
+        if (user01.getSaldo() < valorDaTransferencio) {
+            return "Saldo insuficiente. ";
+        }
+
+        user01.setSaldo(user01.getSaldo() - valorDaTransferencio);
+        user02.setSaldo(user02.getSaldo() + valorDaTransferencio);
+
+            return "Transferencia comcluida. ";
+
 
     }
 
