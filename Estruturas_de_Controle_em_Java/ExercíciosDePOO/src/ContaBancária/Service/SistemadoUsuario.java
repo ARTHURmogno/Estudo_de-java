@@ -7,26 +7,30 @@ import java.util.HashMap;
 public class SistemadoUsuario {
     Map<Integer, Usuario> usuarios = new HashMap<>();
 
-    public void adicionarCliente(int numeroDaConta, Usuario usuario) {
+    public String adicionarCliente(int numeroDaConta, Usuario usuario) {
 
-        if (usuarios.containsKey(numeroDaConta)) {
-            System.out.println("Usúario já cadastrado. ");
-        } else {
-            usuarios.put(numeroDaConta, usuario);
-            System.out.println("Usúsrio cadastrado com sucesso! ");
+        Usuario existente = usuarios.get(numeroDaConta);
+
+        if (existente == null) {
+            return "Usuário inválido. ";
         }
+        if (existente != null) {
+            return "Usúario já cadastrado. ";
+        }
+            usuarios.put(numeroDaConta, usuario);
+            return "Usúsrio cadastrado com sucesso! ";
 
     }
 
-    public void removerConta(int numeroDaConta) {
+    public String removerConta(int numeroDaConta) {
 
         Usuario user = usuarios.get(numeroDaConta);
 
         if (user == null) {
-            usuarios.remove(numeroDaConta);
-        } else {
-            System.out.println("Usúario não essiste. ");
+            return "Usuário não essiste. ";
         }
+            usuarios.remove(numeroDaConta);
+            return "Usuário removido com sucesso. ";
 
     }
 
