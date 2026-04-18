@@ -3,6 +3,7 @@ package ContaBancária.Service;
 import ContaBancária.Modelo.Usuario;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Collection;
 
 public class SistemadoUsuario {
     Map<Integer, Usuario> usuarios = new HashMap<>();
@@ -34,40 +35,38 @@ public class SistemadoUsuario {
 
     }
 
-    public boolean adicionarSaldo(int numeroDaConta, double valor) {
+    public String adicionarSaldo(int numeroDaConta, double valor) {
 
-        Usuario a = usuarios.get(numeroDaConta);
+        Usuario usuario = usuarios.get(numeroDaConta);
 
-        if (a != null && valor > 0) {
-            double novoSaldo = a.getSaldo() + valor;
-            a.setSaldo(novoSaldo);
-            return true;
+        if (usuario == null) {
+            return "Usuário não essiste. ";
+        }
+        if (valor <= 0) {
+            return "Valor Invalido. ";
         }
 
-
-        return false;
+        usuario.setSaldo(usuario.getSaldo() + valor);
+            return "Saldo atualizado com sucesso. ";
 
     }
 
-    public boolean sacarSaldo(int numeroDaConta, double valorSaque) {
+    public String sacarSaldo(int numeroDaConta, double valorSaque) {
 
-        if (usuarios.containsKey(numeroDaConta)) {
-            Usuario user = usuarios.get(numeroDaConta);
+        Usuario user = usuarios.get(numeroDaConta);
 
-            if (user.getSaldo() >= valorSaque && valorSaque > 0) {
-                double novoSaldo = user.getSaldo() - valorSaque;
-                user.setSaldo(novoSaldo);
-                System.out.println("Saque efetuado com sucesso. " + "Novo Saldo: " + novoSaldo);
-                return true;
-            } else {
-            System.out.println("Saldo insuficiente ou volor de saque inválido. ");
-            return false;
+        if (user == null) {
+            return "Usuário não existe. ";
+        }
+        if (valorSaque <= 0) {
+            return "Valor Inválido. ";
+        }
+        if (user.getSaldo() < valorSaque) {
+            return "Saldo insuficiente. ";
         }
 
-    }
-
-          System.out.println("Conta Não encontrada. ");
-            return false;
+        user.setSaldo(user.getSaldo() - valorSaque);
+        return "Saque efetuado com sucesso. ";
     
     
     }
@@ -84,14 +83,12 @@ public class SistemadoUsuario {
 
     }
 
-    public void usuariosLista() {
 
-        for (Usuario user : usuarios.values()) {
-            System.out.printf("Conta: %d Nome: %s Saldo: %.2f\n",
-             user.getNumeroDaConta(), user.getNome(), user.getSaldo());
+        public Collection<Usuario> listarUsuarios() {
+            return usuarios.values();
         }
 
-    }
+    
 
     public String transferenciaEntreContas(int numeroConta, int numeroConta02, double valorDaTransferencio) {
         Usuario user01 = usuarios.get(numeroConta);

@@ -2,7 +2,10 @@ package ContaBancária.App;
 
 import ContaBancária.Modelo.Usuario;
 import ContaBancária.Service.SistemadoUsuario;
+
+import java.util.List;
 import java.util.Scanner;
+import java.util.Collection;
 
 public class Main {
     public static void main(String[] args) {
@@ -105,7 +108,18 @@ public class Main {
                 break;
                 case 6:
 
-                sistema.usuariosLista();
+                Collection<Usuario> lista = sistema.listarUsuarios();
+
+                 if (lista.isEmpty()) {
+                    System.out.println("Nenhum usuário cadastrado.");
+                 } else {
+                   for (Usuario usuario : lista) {
+                 System.out.printf("Conta: %d Nome: %s Saldo: %.2f\n",
+                 usuario.getNumeroDaConta(),
+                 usuario.getNome(),
+                 usuario.getSaldo());
+    }
+}
 
                 break;
                 case 7:
