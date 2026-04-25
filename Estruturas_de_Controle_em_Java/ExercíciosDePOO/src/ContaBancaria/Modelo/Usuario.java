@@ -1,4 +1,4 @@
-package ContaBancária.Modelo;
+package ContaBancaria.Modelo;
 
 public class Usuario {
 

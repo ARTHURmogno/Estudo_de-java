@@ -1,10 +1,11 @@
-package ContaBancária.App;
-
-import ContaBancária.Modelo.Usuario;
-import ContaBancária.Service.SistemadoUsuario;
+package ContaBancaria.App;
 
 import java.util.List;
 import java.util.Scanner;
+
+import ContaBancaria.Modelo.Usuario;
+import ContaBancaria.Service.SistemadoUsuario;
+
 import java.util.Collection;
 
 public class Main {

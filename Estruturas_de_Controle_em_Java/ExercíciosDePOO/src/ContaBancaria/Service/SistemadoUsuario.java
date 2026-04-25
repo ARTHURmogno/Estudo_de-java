@@ -1,7 +1,9 @@
-package ContaBancária.Service;
+package ContaBancaria.Service;
 
-import ContaBancária.Modelo.Usuario;
 import java.util.Map;
+
+import ContaBancaria.Modelo.Usuario;
+
 import java.util.HashMap;
 import java.util.Collection;
 
