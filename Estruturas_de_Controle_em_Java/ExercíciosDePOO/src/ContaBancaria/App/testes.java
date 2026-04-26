@@ -5,9 +5,10 @@ import java.sql.DriverManager;
 
 public class testes {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
         Connection conn = DriverManager.getConnection(
             "jdbc:mysql://localhost:3306/banco_java",
@@ -15,9 +16,46 @@ public class testes {
             "836AXi6"
         );
 
-        System.out.println("Conectado com sucesso!");
-
-
-    }
+           System.out.println("Conectado com sucesso!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     
 }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

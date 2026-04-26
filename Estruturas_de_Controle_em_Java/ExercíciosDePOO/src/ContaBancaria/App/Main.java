@@ -72,7 +72,6 @@ public class Main {
 
                 if (sistema.adicionarSaldo(numeroConta, saldoConta)) {
                     System.out.println("Saldo adicionado com sucesso. ");
-                    sistema.buscarConta(numeroConta);
                 } else {
                     System.out.println("Conta não existe ou valor inválido. ");
                 }

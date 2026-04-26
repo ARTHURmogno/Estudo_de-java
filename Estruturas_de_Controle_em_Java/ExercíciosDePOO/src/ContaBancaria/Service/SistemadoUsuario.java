@@ -37,19 +37,16 @@ public class SistemadoUsuario {
 
     }
 
-    public String adicionarSaldo(int numeroDaConta, double valor) {
+    public boolean adicionarSaldo(int numeroDaConta, double valor) {
 
         Usuario usuario = usuarios.get(numeroDaConta);
 
-        if (usuario == null) {
-            return "Usuário não essiste. ";
-        }
-        if (valor <= 0) {
-            return "Valor Invalido. ";
+        if (usuario == null && valor <= 0) {
+            return false;
         }
 
         usuario.setSaldo(usuario.getSaldo() + valor);
-            return "Saldo atualizado com sucesso. ";
+            return true;
 
     }
 
