@@ -1,0 +1,15 @@
+Humano\Main.class
+Alunos\App\Main.class
+ContaBancaria\App\Main.class
+ContaBancaria\Service\SistemadoUsuario.class
+Humano\Pessoas.class
+Alunos\Servico\SistemaAluno02.class
+Alunos\Modelo\Aluno.class
+Alunos\Servico\SistemaAluno.class
+Alunos\App\Logica.class
+Produto\app\Main.class
+Produto\Modelo\Produto.class
+Produto\Service\Sistema.class
+ContaBancaria\Modelo\Usuario.class
+ContaBancaria\App\testes.class
+Alunos\App\Teste.class
