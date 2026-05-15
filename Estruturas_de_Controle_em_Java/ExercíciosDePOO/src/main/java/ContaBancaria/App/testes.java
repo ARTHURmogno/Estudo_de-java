@@ -1,4 +1,4 @@
-package ContaBancaria.App;
+/*package ContaBancaria.App;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,7 +24,7 @@ public class testes {
         }
     
 }
-}
+} */
 
 
 
