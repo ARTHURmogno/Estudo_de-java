@@ -85,5 +85,38 @@ public class Dao {
         }
 
     }
+
+    public void atualizar(Usuario usuario) {
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = Conexao.conectar();
+
+            String sql = "UPDATE usuarios SET saldo = ? WHERE id ?";
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setDouble(1, usuario.getSaldo());
+            stmt.setInt(2, usuario.getId());
+
+            stmt.executeUpdate();
+
+
+        } catch (Exception e) {
+            System.out.println("erro ao atualizar dados.");
+        } finally {
+            try {
+                if (conn != null) conn.close();
+
+                if (stmt != null) stmt.close();
+
+            } catch (Exception e) {
+                System.out.println("erro ao fechar.");
+            }
+        }
+
+    }
     
 }

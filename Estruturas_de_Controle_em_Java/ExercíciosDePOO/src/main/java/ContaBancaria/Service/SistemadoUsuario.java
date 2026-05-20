@@ -10,9 +10,9 @@ import java.util.Collection;
 public class SistemadoUsuario {
     Map<Integer, Usuario> usuarios = new HashMap<>();
 
-    public String adicionarCliente(int numeroDaConta, Usuario usuario) {
+    public String adicionarCliente(int id, Usuario usuario) {
 
-        Usuario existente = usuarios.get(numeroDaConta);
+        Usuario existente = usuarios.get(id);
 
         if (existente == null) {
             return "Usuário inválido. ";
@@ -20,26 +20,26 @@ public class SistemadoUsuario {
         if (existente != null) {
             return "Usúario já cadastrado. ";
         }
-            usuarios.put(numeroDaConta, usuario);
+            usuarios.put(id, usuario);
             return "Usúsrio cadastrado com sucesso! ";
 
     }
 
-    public String removerConta(int numeroDaConta) {
+    public String removerConta(int id) {
 
-        Usuario user = usuarios.get(numeroDaConta);
+        Usuario user = usuarios.get(id);
 
         if (user == null) {
             return "Usuário não essiste. ";
         }
-            usuarios.remove(numeroDaConta);
+            usuarios.remove(id);
             return "Usuário removido com sucesso. ";
 
     }
 
-    public boolean adicionarSaldo(int numeroDaConta, double valor) {
+    public boolean adicionarSaldo(int id, double valor) {
 
-        Usuario usuario = usuarios.get(numeroDaConta);
+        Usuario usuario = usuarios.get(id);
 
         if (usuario == null && valor <= 0) {
             return false;
@@ -50,9 +50,9 @@ public class SistemadoUsuario {
 
     }
 
-    public String sacarSaldo(int numeroDaConta, double valorSaque) {
+    public String sacarSaldo(int id, double valorSaque) {
 
-        Usuario user = usuarios.get(numeroDaConta);
+        Usuario user = usuarios.get(id);
 
         if (user == null) {
             return "Usuário não existe. ";
@@ -70,9 +70,9 @@ public class SistemadoUsuario {
     
     }
 
-    public Usuario buscarConta(int numeroDaConta) {
+    public Usuario buscarConta(int id) {
 
-        Usuario user = usuarios.get(numeroDaConta);
+        Usuario user = usuarios.get(id);
         
         if (user != null) {
             return user;

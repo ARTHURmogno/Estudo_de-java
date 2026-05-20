@@ -3,21 +3,21 @@ package ContaBancaria.Modelo;
 public class Usuario {
 
     private String nome;
-    private int numeroDaConta;
+    private int id;
     private double saldo;
 
-    public Usuario(String nome, int numeroDaConta, double saldo) {
+    public Usuario(String nome, int id, double saldo) {
         if (nome == null || nome.isBlank()) {
             throw new IllegalArgumentException("Nome Inválido. ");
         }
-        if (numeroDaConta < 10000 || numeroDaConta > 99999) {
+        if (id < 10000 || id > 99999) {
             throw new IllegalArgumentException("Número da Conta Inválido. ");
         }
         if (saldo < 0) {
             throw new IllegalArgumentException("Saldo Não pode ser Negativo. ");
         }
         this.nome = nome;
-        this.numeroDaConta = numeroDaConta;
+        this.id = id;
         this.saldo = saldo;
 
     }
@@ -26,8 +26,8 @@ public class Usuario {
         return nome;
     }
 
-    public int getNumeroDaConta() {
-        return numeroDaConta;
+    public int getId() {
+        return id;
     }
 
     public double getSaldo() {
