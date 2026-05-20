@@ -118,5 +118,36 @@ public class Dao {
         }
 
     }
+
+    public void deletar(Usuario usuario) {
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = Conexao.conectar();
+
+            String sql = "DELETE FROM usuarios WHERE id = ?";
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, usuario.getId());
+
+            stmt.executeUpdate();
+
+
+        }catch (Exception e) {
+            System.out.println("erro ao deletar.");
+        } finally {
+            try {
+                if (conn != null) conn.close();
+                if (stmt != null) stmt.close();
+
+            }catch (Exception e) {
+                System.out.println("erro ao fechar.");
+            }
+        }
+
+    }
     
 }
