@@ -100,7 +100,7 @@ public class Main {
 
                 if (sistema.buscarConta(numeroConta) != null) {
                     System.out.printf("Conta: %d Nome: %s Saldo: %.2f\n ", 
-                    user00.getNumeroDaConta(), user00.getNome(), user00.getSaldo());
+                    user00.getId(), user00.getNome(), user00.getSaldo());
                 } else {
                     System.out.println("Conta não encontrada. ");
                 }
@@ -115,7 +115,7 @@ public class Main {
                  } else {
                    for (Usuario usuario : lista) {
                  System.out.printf("Conta: %d Nome: %s Saldo: %.2f\n",
-                 usuario.getNumeroDaConta(),
+                 usuario.getId(),
                  usuario.getNome(),
                  usuario.getSaldo());
     }
