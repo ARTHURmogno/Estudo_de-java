@@ -86,6 +86,49 @@ public class Dao {
 
     }
 
+    public Usuario mostraPorId(Usuario usuario) {
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = Conexao.conectar();
+
+            String sql = "SELECT * FROM usuarios WHERE id = ?";
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, usuario.getId());
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+
+                String nome = rs.getString("nome");
+                double saldo = rs.getDouble("saldo");
+
+                Usuario u = new Usuario(nome, usuario.getId(), saldo);
+        
+                return u;
+            }
+
+            return null;
+
+        }catch (Exception e) {
+            System.out.println("erro ao mostrar o Usuario.");
+            return null;
+        } finally {
+            try {
+                if (conn != null) conn.close();
+                if (stmt != null) stmt.close();
+
+            }catch (Exception e) {
+                System.out.println("erro ao fechar.");
+            }
+        }
+
+    }
+
     public void atualizar(Usuario usuario) {
 
         Connection conn = null;
