@@ -10,36 +10,37 @@ import java.util.ArrayList;
 
 public class Dao {
 
-
-
     public void salvar(Usuario usuario) {
 
         Connection conn = null;
         PreparedStatement stmt = null;
 
         try {
-              conn = Conexao.conectar();
 
-            String sql = "INSERT INTO usuarios (nome, saldo) VALUES (?, ?)";
-              stmt = conn.prepareStatement(sql);
+            conn = Conexao.conectar();
+
+            String sql = "INSERT INTO usuarios (nome, id, saldo) VALUES (?, ?, ?)";
+            stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, usuario.getNome());
-            stmt.setDouble(2, usuario.getSaldo());
+            stmt.setInt(2, usuario.getId());
+            stmt.setDouble(3, usuario.getSaldo());
 
             stmt.executeUpdate();
 
-        } catch (Exception e) {
-            System.out.println("Deu erro.");
+        }catch (Exception e) {
+            System.out.println("erro ao adicionar Usuario.");
         } finally {
             try {
 
-            if (stmt != null) stmt.close();
-            if (conn != null) conn.close();
+                if (conn != null) conn.close();
+                if (stmt != null) stmt.close();
 
-            } catch (Exception e) {
-                System.out.println("Erro ao fachar.");
+            }catch (Exception e) {
+                System.out.println("erro ao fechar.");
             }
         }
+
     }
 
     public List<Usuario> listar() {
@@ -47,9 +48,9 @@ public class Dao {
         Connection conn = null;
         PreparedStatement stmt = null;
 
-        try{
+        try {
 
-            List<Usuario> usuarios = new ArrayList<>();
+            List<Usuario> usuarios = new ArrayList<>(); 
 
             conn = Conexao.conectar();
 
@@ -58,11 +59,10 @@ public class Dao {
 
             ResultSet rs = stmt.executeQuery();
 
+            while (rs.next()) {
 
-            while(rs.next()) {
-
-                int id = rs.getInt("id");
                 String nome = rs.getString("nome");
+                int id = rs.getInt("id");
                 double saldo = rs.getDouble("saldo");
 
                 Usuario u = new Usuario(nome, id, saldo);
@@ -72,15 +72,16 @@ public class Dao {
             }
             return usuarios;
 
-        } catch (Exception e) {
-            System.out.println("Erro ao lista.");
-            return new ArrayList<>();
+        }catch (Exception e) {
+            System.out.println("erro ao listar.");
+            return null;
         } finally {
             try {
                 if (conn != null) conn.close();
                 if (stmt != null) stmt.close();
+
             } catch (Exception e) {
-                System.out.println("Erro ao fechar.");
+                System.out.println("erro ao fechar.");
             }
         }
 
@@ -108,14 +109,15 @@ public class Dao {
                 double saldo = rs.getDouble("saldo");
 
                 Usuario u = new Usuario(nome, usuario.getId(), saldo);
-        
+
                 return u;
+
             }
 
             return null;
 
         }catch (Exception e) {
-            System.out.println("erro ao mostrar o Usuario.");
+            System.out.println("erro ao mostrar usuario.");
             return null;
         } finally {
             try {
@@ -129,68 +131,4 @@ public class Dao {
 
     }
 
-    public void atualizar(Usuario usuario) {
-
-        Connection conn = null;
-        PreparedStatement stmt = null;
-
-        try {
-
-            conn = Conexao.conectar();
-
-            String sql = "UPDATE usuarios SET saldo = ? WHERE id ?";
-            stmt = conn.prepareStatement(sql);
-
-            stmt.setDouble(1, usuario.getSaldo());
-            stmt.setInt(2, usuario.getId());
-
-            stmt.executeUpdate();
-
-
-        } catch (Exception e) {
-            System.out.println("erro ao atualizar dados.");
-        } finally {
-            try {
-                if (conn != null) conn.close();
-
-                if (stmt != null) stmt.close();
-
-            } catch (Exception e) {
-                System.out.println("erro ao fechar.");
-            }
-        }
-
-    }
-
-    public void deletar(Usuario usuario) {
-
-        Connection conn = null;
-        PreparedStatement stmt = null;
-
-        try {
-
-            conn = Conexao.conectar();
-
-            String sql = "DELETE FROM usuarios WHERE id = ?";
-            stmt = conn.prepareStatement(sql);
-
-            stmt.setInt(1, usuario.getId());
-
-            stmt.executeUpdate();
-
-
-        }catch (Exception e) {
-            System.out.println("erro ao deletar.");
-        } finally {
-            try {
-                if (conn != null) conn.close();
-                if (stmt != null) stmt.close();
-
-            }catch (Exception e) {
-                System.out.println("erro ao fechar.");
-            }
-        }
-
-    }
-    
 }
