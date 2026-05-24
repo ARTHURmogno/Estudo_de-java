@@ -19,11 +19,10 @@ public class Dao {
 
             conn = Conexao.conectar();
 
-            String sql = "INSERT INTO usuarios (nome, id, saldo) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO usuarios (nome, saldo) VALUES (?, ?)";
             stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, usuario.getNome());
-            stmt.setInt(2, usuario.getId());
             stmt.setDouble(3, usuario.getSaldo());
 
             stmt.executeUpdate();
@@ -87,7 +86,7 @@ public class Dao {
 
     }
 
-    public Usuario mostraPorId(Usuario usuario) {
+    public Usuario mostraPorId(int id) {
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -99,7 +98,7 @@ public class Dao {
             String sql = "SELECT * FROM usuarios WHERE id = ?";
             stmt = conn.prepareStatement(sql);
 
-            stmt.setInt(1, usuario.getId());
+            stmt.setInt(1, id);
 
             ResultSet rs = stmt.executeQuery();
 
@@ -108,7 +107,7 @@ public class Dao {
                 String nome = rs.getString("nome");
                 double saldo = rs.getDouble("saldo");
 
-                Usuario u = new Usuario(nome, usuario.getId(), saldo);
+                Usuario u = new Usuario(nome, id, saldo);
 
                 return u;
 

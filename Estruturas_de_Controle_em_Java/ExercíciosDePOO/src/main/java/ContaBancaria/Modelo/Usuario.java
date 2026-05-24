@@ -22,6 +22,20 @@ public class Usuario {
 
     }
 
+    public Usuario(String nome, double saldo) {
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("Nome Inválido. ");
+        }
+        if (saldo < 0) {
+            throw new IllegalArgumentException("Saldo Não pode ser Negativo. ");
+        }
+        this.nome = nome;
+        this.saldo = saldo;
+
+    }
+
+
+
     public String getNome()  {
         return nome;
     }
@@ -37,5 +51,14 @@ public class Usuario {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
+
+    @Override
+    public String toString() {
+        return "nome: " + nome +
+        ", id: " + id +
+        ", saldo: " + saldo; 
+
+    }
+
 
 }

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import ContaBancaria.Modelo.Usuario;
 import ContaBancaria.Service.SistemadoUsuario;
+import ContaBancaria.UsuarioDAO.Dao;
 
 import java.util.Collection;
 
@@ -12,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        Dao dao = new Dao();
         SistemadoUsuario sistema = new SistemadoUsuario();
 
         boolean funcionando = true;
@@ -47,6 +49,7 @@ public class Main {
                 sc.nextLine();
 
                 Usuario user = new Usuario(nome, numeroConta, saldoConta);
+                dao.salvar(user);
 
                 sistema.adicionarCliente(numeroConta, user);
 
@@ -56,6 +59,8 @@ public class Main {
                 System.out.println("Número da conta: ");
                 numeroConta = sc.nextInt();
                 sc.nextLine();
+
+                dao.deletar(numeroConta);
 
                 sistema.removerConta(numeroConta);
 
@@ -92,7 +97,7 @@ public class Main {
                 break;
                 case 5:
 
-                System.out.println("Infome o número da conta: ");
+                /*System.out.println("Infome o número da conta: ");
                 numeroConta = sc.nextInt();
                 sc.nextLine();
 
@@ -103,10 +108,18 @@ public class Main {
                     user00.getId(), user00.getNome(), user00.getSaldo());
                 } else {
                     System.out.println("Conta não encontrada. ");
-                }
+                }*/
+
+                Usuario userDao = dao.mostraPorId();
 
                 break;
                 case 6:
+
+                List<Usuario> usuarios = dao.listar();
+
+                for (Usuario u : usuarios) {
+                    System.out.println(u);
+                }
 
                 Collection<Usuario> lista = sistema.listarUsuarios();
 
