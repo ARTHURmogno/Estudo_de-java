@@ -6,7 +6,7 @@ import ContaBancaria.UsuarioDAO.Dao;
 
 import java.util.Scanner;
 
-public class MainTestes {
+public class MainComDAO {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

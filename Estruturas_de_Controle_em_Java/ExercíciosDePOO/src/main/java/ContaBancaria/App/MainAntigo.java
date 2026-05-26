@@ -9,7 +9,7 @@ import ContaBancaria.UsuarioDAO.Dao;
 
 import java.util.Collection;
 
-public class Main {
+public class MainAntigo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
