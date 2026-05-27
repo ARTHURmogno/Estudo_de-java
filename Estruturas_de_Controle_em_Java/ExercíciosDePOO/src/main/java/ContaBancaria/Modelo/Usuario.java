@@ -22,6 +22,18 @@ public class Usuario {
 
     }
 
+    public Usuario(int id, double saldo) {
+        if (id < 10000 || id > 99999) {
+            throw new IllegalArgumentException("Número da Conta Inválido. ");
+        }
+        if (saldo < 0) {
+            throw new IllegalArgumentException("Saldo Não pode ser Negativo. ");
+        }
+        this.id = id;
+        this.saldo = saldo;
+
+    }
+
     public Usuario(String nome, double saldo) {
         if (nome == null || nome.isBlank()) {
             throw new IllegalArgumentException("Nome Inválido. ");

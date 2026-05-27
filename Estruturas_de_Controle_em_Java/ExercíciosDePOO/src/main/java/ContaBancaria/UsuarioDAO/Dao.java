@@ -23,12 +23,13 @@ public class Dao {
             stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, usuario.getNome());
-            stmt.setDouble(3, usuario.getSaldo());
+            stmt.setDouble(2, usuario.getSaldo());
 
             stmt.executeUpdate();
 
         }catch (Exception e) {
             System.out.println("erro ao adicionar Usuario.");
+            e.printStackTrace();
         } finally {
             try {
 
@@ -69,6 +70,7 @@ public class Dao {
                 usuarios.add(u);
 
             }
+            System.out.println("Quantidade:" + usuarios.size());
             return usuarios;
 
         }catch (Exception e) {
@@ -144,6 +146,72 @@ public class Dao {
 
             stmt.setDouble(1, usuario.getSaldo());
             stmt.setInt(2, usuario.getId());
+
+            stmt.executeUpdate();
+
+
+        }catch (Exception e) {
+            System.out.println("erro ao atualizar.");
+        } finally {
+            try {
+                if (conn != null) conn.close();
+                if (stmt != null) stmt.close();
+
+            }catch (Exception e) {
+                System.out.println("erro ao fechar.");
+            }
+        }
+
+
+    }
+
+    public void adicionarSaldo(int id, double saldo) {
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = Conexao.conectar();
+
+            String sql = "UPDATE usuarios SET saldo = saldo + ? WHERE id = ?";
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setDouble(1, saldo);
+            stmt.setInt(2, id);
+
+            stmt.executeUpdate();
+
+
+        }catch (Exception e) {
+            System.out.println("erro ao atualizar.");
+        } finally {
+            try {
+                if (conn != null) conn.close();
+                if (stmt != null) stmt.close();
+
+            }catch (Exception e) {
+                System.out.println("erro ao fechar.");
+            }
+        }
+
+
+    }
+
+    public void subtarirSaldo(int id, double saldo) {
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = Conexao.conectar();
+
+            String sql = "UPDATE usuarios SET saldo = saldo - ? WHERE id = ?";
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setDouble(1, saldo);
+            stmt.setInt(2, id);
 
             stmt.executeUpdate();
 
